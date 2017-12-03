@@ -15,11 +15,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="practice_daily.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="practice_daily.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/practice_daily.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="80" column="38" lean-forward="false" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+            <state relative-caret-position="326">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shopping_list.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shopping_list.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -38,6 +48,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/practice_daily.py" />
+        <option value="$PROJECT_DIR$/shopping_list.py" />
       </list>
     </option>
   </component>
@@ -83,7 +94,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Python.practice_daily">
+  <component name="RunManager" selected="Python.shopping_list">
     <configuration default="false" name="Unittests in practice100days" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -119,6 +130,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="practice100days" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice_daily.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="shopping_list" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="practice100days" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shopping_list.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -257,14 +285,16 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in practice100days" />
       <item index="1" class="java.lang.String" itemvalue="Python.practice_daily" />
+      <item index="2" class="java.lang.String" itemvalue="Python.shopping_list" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.practice_daily" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in practice100days" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="Python.shopping_list" />
+        <item index="1" class="java.lang.String" itemvalue="Python.practice_daily" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in practice100days" />
       </list>
     </recent_temporary>
   </component>
@@ -325,8 +355,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/practice_daily.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="80" column="38" lean-forward="false" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+        <state relative-caret-position="326">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shopping_list.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="29" column="30" lean-forward="false" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
           <folding />
         </state>
       </provider>
