@@ -59,17 +59,29 @@ def sum(num):
 # tupled = tuple(list)
 # print(tupled)
 
-print("Add items or say 'done' to exit and view list.")
+
+def start_shopping():
+    print("Add items or say 'show' to see your list, 'help' to view options, or 'done' to exit and view list.")
+
+start_shopping()
 shopping_list = list()
 new_item = ""
 list_output = "You need to buy: "
 solo_list = "You only need to pick up: "
+
 while new_item != 'done':
-    new_item = input("What item do you need?").lower()
-    if new_item == 'done':
-        if len(shopping_list) == 0:
-            print('Goodbye. Have a nice day!')
-        else:
+    new_item = input("What do you need at the store?").lower()
+    if len(shopping_list) == 0 and new_item == "done":
+        print('Goodbye. Have a nice day!')
+
+    elif new_item == "help":
+        start_shopping()
+
+    elif new_item == 'show':
+        print(','.join(shopping_list))
+
+
+    elif new_item == 'done':
             list_len = len(shopping_list)
             for i in range(0, list_len):
                 if list_len == 1:
