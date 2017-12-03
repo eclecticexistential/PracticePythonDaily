@@ -1,6 +1,5 @@
-
 def start_shopping():
-    print("Add items or say 'show' to see your list, 'help' to view options, or 'done' to exit and view list.")
+    print("Add items or say 'show' to see your list, 'delete' to remove an item, 'help' to view options, or 'done' to exit and view list.")
 
 start_shopping()
 
@@ -9,6 +8,9 @@ def help():
 
 def show(x):
     print(','.join(x))
+
+def delete(x,y):
+    x.remove(y)
 
 def main():
     new_item = ""
@@ -28,6 +30,13 @@ def main():
 
         elif new_item == 'show':
             show(shopping_list)
+
+        elif new_item == 'delete':
+            try:
+                del_item = input("Which item do you want to delete?").lower()
+                delete(shopping_list, del_item)
+            except:
+                print("Item was not on the list.")
 
         elif new_item == 'done':
                 list_len = len(shopping_list)
