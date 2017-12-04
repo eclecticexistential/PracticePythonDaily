@@ -59,7 +59,15 @@ def main():
                         list_output += "."
                         print(list_output)
         else:
-            shopping_list.append(new_item)
-            print("Added {}. List now has {} items.".format(new_item, len(shopping_list)))
+            if new_item in shopping_list:
+                answer = input("An item is on the list more than once. Delete it?").lower()
+                if answer =="yes":
+                    #deletes old new_item
+                    delete(shopping_list, new_item)
+                    #adds current new_item ...is there a better way to do this?
+                    shopping_list.append(new_item)
+            else:
+                shopping_list.append(new_item)
+                print("Added {}. List now has {} items.".format(new_item, len(shopping_list)))
 
 main()
