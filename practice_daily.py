@@ -61,25 +61,3 @@ def sum(num):
 # print(tupled)
 
 #treehouse challenge to get computer to guess user's number
-
-def comp_guess_game():
-    hidden_number = int(input("This is the secret number I've picked, between 1 and 10."))
-    computer_guess = random.randint(1, 11)
-    guesses = list()
-
-    while hidden_number != computer_guess:
-        guesses.append(computer_guess)
-        if computer_guess < hidden_number:
-            print("The computer's guess is:", computer_guess, ". Let's tell them it's too low.")
-            x = computer_guess+1
-            computer_guess = random.randint(x,11)
-
-        elif computer_guess > hidden_number:
-            print("The computer's guess is:", computer_guess, ". Let's tell them it's too high.")
-            x = computer_guess-1
-            computer_guess = random.randint(1,x)
-
-    else:
-        print("The computer guessed your secret number", hidden_number, "!")
-
-comp_guess_game()
