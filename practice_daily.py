@@ -2,6 +2,20 @@
 #import json
 import random
 
+# def even_odd(num):
+#     return not num % 2
+#
+# start = 5
+#
+# while start > 0:
+#     number = random.randint(1,99)
+#     if even_odd(number):
+#         print("{} is even".format(number))
+#     else:
+#         print("{} is odd".format(number))
+#     start -= 1
+
+
 #day 1 range
 empty_list = []
 
@@ -61,3 +75,34 @@ def sum(num):
 # print(tupled)
 
 #treehouse challenge to get computer to guess user's number
+
+# class Collab(object):
+#     def __init__(self):
+#         self.s = ''
+#     def getString(self):
+#         self.s = input('Give me a string...')
+#     def printString(self):
+#         print(self.s.upper())
+#     def createTupleString(self):
+#         thisTup = self.s.split(',')
+#         tupled = tuple(thisTup)
+#         print(tupled)
+#     def indiLetters(self):
+#         for i in self.s:
+#             print(i)
+#     def sDict(self):
+#         stringDictionary = dict()
+#         for i in self.s:
+#             stringDictionary[i] = self.s
+#         print(stringDictionary)
+#         for wordPair in stringDictionary:
+#             print("{}:{}".format(wordPair, stringDictionary[wordPair]))
+#
+# x = Collab()
+# print(x)
+#
+# x.getString()
+# x.printString()
+# x.createTupleString()
+# x.indiLetters()
+# x.sDict()

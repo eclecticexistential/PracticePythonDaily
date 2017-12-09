@@ -25,6 +25,19 @@ def main():
         if len(shopping_list) == 0 and new_item == "done":
             print('Goodbye. Have a nice day!')
 
+        elif not new_item.isalpha():
+            answer = input("Do you need more than one?").lower()
+            if answer == "yes":
+                shopping_list.append(new_item)
+                print("Added {}. List now has {} items.".format(new_item, len(shopping_list)))
+            elif answer == "no":
+                more_info = input("Is this the name of an item?").lower()
+                if more_info == "yes":
+                    shopping_list.append(new_item)
+                    print("Added {}. List now has {} items.".format(new_item, len(shopping_list)))
+                else:
+                    print("That is not a word")
+
         elif new_item == "help":
             help()
 

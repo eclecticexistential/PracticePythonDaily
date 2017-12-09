@@ -1,4 +1,3 @@
-
 def comp_guess_game():
     hidden_number = int(input("This is the secret number I've picked, between 1 and 10."))
     computer_guess = random.randint(1, 10)
@@ -24,11 +23,9 @@ def comp_guess_game():
                 print("The computer's guess is: " + str(computer_guess) + ". Let's tell them it's too high.")
                 x = computer_guess-1
                 computer_guess = random.randint(1,x)
-
         else:
             print("""You win!
 The computer was unable to guess your number in 4 guesses.
 """)
             break
-
 comp_guess_game()
