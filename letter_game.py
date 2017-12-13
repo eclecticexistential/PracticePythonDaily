@@ -3,22 +3,7 @@ import random
 import sys
 import words
 
-secret_word = words.get_words()
-
-# def get_word():
-#     with open("words.py") as f:
-#         words = f.read().split(',')
-#         without_quotes = random.choice(words)
-#         secret_word = ""
-#         for i in without_quotes:
-#             if i == "\'":
-#                 i = ""
-#             else:
-#                 secret_word += i
-#     return secret_word
-
-
-#clear doesn't work
+#clear doesn't ?
 def clear():
     if os.name == 'nt':
         os.system('cls')
@@ -45,24 +30,30 @@ def get_guess(bad_guesses,good_guesses):
     while True:
         guess = input("Guess a letter: ").lower()
 
-        if len(guess) != 1:
-            print("You can only guess a single letter.")
-        elif guess in bad_guesses or guess in good_guesses:
+        if guess in bad_guesses or guess in good_guesses:
             print("You've already guessed that letter!")
         elif not guess.isalpha():
             print("You can only guess letters!")
         else:
             return guess
 
+def winning_guess(guess,secret_word):
+    if guess == secret_word:
+        print("You win!")
+        play_again()
+    elif len(guess) != 1:
+        print("You can only guess a single letter.")
+
 def play(done):
     clear()
-    # secret_word = get_word()
+    secret_word = words.get_words()
     bad_guesses = []
     good_guesses = []
 
     while True:
         draw(bad_guesses, good_guesses, secret_word)
         guess = get_guess(bad_guesses,good_guesses)
+        winning_guess(guess,secret_word)
 
         if guess in secret_word:
             good_guesses.append(guess)
@@ -83,11 +74,14 @@ def play(done):
                 done = True
 
         if done:
-            play_again = input("Play again? Y/n ").lower()
-            if play_again != "n":
-                return play(done = False)
-            else:
-                sys.exit()
+            play_again()
+
+def play_again():
+    play_again = input("Play again? Y/n ").lower()
+    if play_again != "n":
+        return play(done=False)
+    else:
+        sys.exit()
 
 def welcome():
     start = input("Press enter/return to start or Q to quit").lower()
