@@ -1,17 +1,22 @@
 import os
 import random
 import sys
+import words
 
+secret_word = words.get_words()
 
-with open("words.py") as f:
-    words = f.read().split(',')
-    without_quotes = random.choice(words)
-    secret_word = ""
-    for i in without_quotes:
-        if i == "\'":
-            i = ""
-        else:
-            secret_word += i
+# def get_word():
+#     with open("words.py") as f:
+#         words = f.read().split(',')
+#         without_quotes = random.choice(words)
+#         secret_word = ""
+#         for i in without_quotes:
+#             if i == "\'":
+#                 i = ""
+#             else:
+#                 secret_word += i
+#     return secret_word
+
 
 #clear doesn't work
 def clear():
@@ -51,6 +56,7 @@ def get_guess(bad_guesses,good_guesses):
 
 def play(done):
     clear()
+    # secret_word = get_word()
     bad_guesses = []
     good_guesses = []
 
