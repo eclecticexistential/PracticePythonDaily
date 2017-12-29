@@ -107,11 +107,76 @@ def sum(num):
 # x.indiLetters()
 # x.sDict()
 
-c = 50
-h = 30
-import math
-x = []
-y = [i for i in input('give me a number: ').split(',')]
-for d in y:
-    x.append(str(int(round(math.sqrt(2*c*float(d)/h)))))
-print(','.join(x))
+# c = 50
+# h = 30
+# import math
+# x = []
+# y = [i for i in input('give me a number: ').split(',')]
+# for d in y:
+#     x.append(str(int(round(math.sqrt(2*c*float(d)/h)))))
+# print(','.join(x))
+
+# def palindrome(string):
+#     back_word = string[::-1]
+#     if string == back_word:
+#         print("yes")
+#     else:
+#         print("no")
+#
+# palindrome("redivider")
+
+# def merge(a,b):
+#     merged_dict = []
+#     for item in a:
+#         merged_dict.append(item)
+#     for item in b:
+#         merged_dict.append(item)
+#     print(sorted(merged_dict, reverse=True))
+#
+# merge([],[])
+# merge([1],[0])
+# merge([7,5,1],[2])
+# merge([7,8,9],[1,2,3])
+# yay!
+
+def last_word_length(text):
+    letters=[]
+    counter = 0
+    length = len(letters)
+    back_word = text[::-1]
+    for item in text:
+        letters.append(item)
+    if len(text) > 0:
+        if letters[length-1] == " ":
+            for letter in letters:
+                if letter != " ":
+                    counter += 1
+                else:
+                    break
+        elif letters[length-1] != " ":
+            for letter in back_word:
+                if letter != " ":
+                    counter += 1
+                else:
+                    break
+    print(counter)
+
+last_word_length("")
+last_word_length("hi ")
+last_word_length("last    ")
+last_word_length('string of words')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
