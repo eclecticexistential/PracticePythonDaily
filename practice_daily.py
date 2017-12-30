@@ -139,32 +139,113 @@ def sum(num):
 # merge([7,8,9],[1,2,3])
 # yay!
 
-def last_word_length(text):
-    letters=[]
-    counter = 0
-    length = len(letters)
-    back_word = text[::-1]
-    for item in text:
-        letters.append(item)
-    if len(text) > 0:
-        if letters[length-1] == " ":
-            for letter in letters:
-                if letter != " ":
-                    counter += 1
-                else:
-                    break
-        elif letters[length-1] != " ":
-            for letter in back_word:
-                if letter != " ":
-                    counter += 1
-                else:
-                    break
-    print(counter)
+# def last_word_length(text):
+#     letters=[]
+#     counter = 0
+#     length = len(letters)
+#     back_word = text[::-1]
+#     for item in text:
+#         letters.append(item)
+#     if len(text) > 0:
+#         if letters[length-1] == " ":
+#             for letter in letters:
+#                 if letter != " ":
+#                     counter += 1
+#                 else:
+#                     break
+#         elif letters[length-1] != " ":
+#             for letter in back_word:
+#                 if letter != " ":
+#                     counter += 1
+#                 else:
+#                     break
+#     print(counter)
+#
+# last_word_length("")
+# last_word_length("hi ")
+# last_word_length("last    ")
+# last_word_length('string of words')
 
-last_word_length("")
-last_word_length("hi ")
-last_word_length("last    ")
-last_word_length('string of words')
+
+# def find_in_sorted(nums, target):
+#     new_arr = sorted(nums)
+#     #go with only nums if order matters
+#     counter = []
+#     for i,j in enumerate(new_arr):
+#         if j == target:
+#             counter.append(i)
+#     if len(counter) == 1:
+#         print(counter[0])
+#     elif nums == [] or len(counter) == 0:
+#         print(-1)
+#     elif len(counter) > 1:
+#         length = len(counter)-1
+#         print("in range({},{})".format(counter[0],counter[length]+1))
+#
+# find_in_sorted([],0)
+# find_in_sorted([1,2,3],0)
+# find_in_sorted([1,2,3],2)
+# find_in_sorted([1,2,2,2,2,2,3],2)
+# find_in_sorted([1,2,3,4,6,7,8,12,13,16], 12)
+# find_in_sorted([1,3,2,3,4,5,3,1],3)
+
+
+# def simplify_path(path):
+#     new_path = ''
+#     name = ''
+#     for i, j in enumerate(path):
+#         if i == 0 and j == '/':
+#             new_path += "/"
+#         elif j != "/" and j != ".":
+#             name += j
+#         elif i != 0 and len(name) != 0 and j == "/":
+#             for x, y, z in zip(path, path[1:],path[2:]):
+#                 if x == "/" and y == "/" and z == "/":
+#                     new_path += name
+#                     new_path += "/"
+#                     name = ''
+#     for x, y, z in zip(path,path[1:],path[2:]):
+#         if x == "." and y == "." and z == ".":
+#             new_path += "..."
+#
+#     print(new_path)
+#
+# simplify_path('/')
+# simplify_path('/../')
+# simplify_path('/...')
+# simplify_path('/foo/..')
+# simplify_path('/foo///.//bar//')
+
+#need pull request for codekatas as max num
+
+# num = '912583'
+#
+# def create_max(num,k):
+#     new_array = sorted(num, reverse=True)
+#     new_string = ""
+#     for i in range(0,k):
+#         new_string += new_array[i]
+#     if int(new_string)  < int(num):
+#         print(new_string)
+#     else:
+#         print(num)
+#
+#
+# create_max(num,1)
+# create_max(num,2)
+# create_max(num,3)
+# create_max(num,4)
+# create_max(num,5)
+# create_max(num,6)
+
+#completed Yellow Belt!
+
+
+
+
+
+
+
 
 
 
