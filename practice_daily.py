@@ -239,7 +239,43 @@ def sum(num):
 # create_max(num,6)
 
 #completed Yellow Belt!
+#
+# p = random_prime(2^512); q = random_prime(2^512)
+# N = p * q
+#
+# a = p - ( p % 2 ^86)
+#
+# sage: hex(a) 'a9759e8c9fba8c0ec3e637d1e26e7b88befeb03ac199d1190' \
+#              '76e3294d16ffcaef629e2937a03592895b29b0ac708e79830' \
+#              '4330240bc000000000000000000000'
+# RSA key recovery ... partial info
+#
+# X = 2^86
+# M = matrix([[X^2, 2*X*a, a^2], [0, X, a], [0,0,N]])
+# B = M.LLL()
+#
+# Q = B[0][0]*x^2/X^2+B[0][1]*x/X+B[0][2]
+#
+# sage: a + Q.roots(ring==ZZ)[0][0] == p
+# True
 
+#LLL algorithm to find short vector
+
+# media.ccc.de/v/34c3-9075-latticehacks#t=951
+
+# lattice ftw
+
+
+import numpy
+def primesfrom3to(n):
+    """ Returns a array of primes, 3 <= p < n """
+    sieve = numpy.ones(n/2, dtype=numpy.bool)
+    for i in xrange(3,int(n**0.5)+1,2):
+        if sieve[i/2]:
+            sieve[i*i/2::i] = False
+    return 2*numpy.nonzero(sieve)[0][1::]+1
+
+primesfrom3to(262144)
 
 
 
