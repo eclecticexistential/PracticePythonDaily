@@ -265,24 +265,88 @@ def sum(num):
 
 # lattice ftw
 
-
-import numpy
-def primesfrom3to(n):
-    """ Returns a array of primes, 3 <= p < n """
-    sieve = numpy.ones(n/2, dtype=numpy.bool)
-    for i in xrange(3,int(n**0.5)+1,2):
-        if sieve[i/2]:
-            sieve[i*i/2::i] = False
-    return 2*numpy.nonzero(sieve)[0][1::]+1
-
-primesfrom3to(262144)
-
-
+#
+# import numpy
+# def primesfrom3to(n):
+#     """ Returns a array of primes, 3 <= p < n """
+#     sieve = numpy.ones(n/2, dtype=numpy.bool)
+#     for i in xrange(3,int(n**0.5)+1,2):
+#         if sieve[i/2]:
+#             sieve[i*i/2::i] = False
+#     return 2*numpy.nonzero(sieve)[0][1::]+1
+#
+# primesfrom3to(262144)
 
 
+# a = [1,2,3,4]
+# b = [5,6,7,8]
+#
+# a.append(9)
+# a.extend(b)
+# # print(a)
+# del a[4]
+# # print(a)
+#
+# a.insert(len(a),9)
+# # print(a)
+
+favorite_things = ["a",'b','c','d','e']
+slice1 = favorite_things[:]
+# print(slice1)
+length = len(favorite_things)-2
+slice2 = favorite_things[length:]
+# print(slice2)
+
+slice3 = favorite_things[::-1]
+#
+# def first_and_last_4(x):
+#     y = x[:4]
+#     z = x[-4:]
+#     # w = y.extend(z)
+#     # ^won't work
+#     y.extend(z)
+#     print(y)
+#
+# first_and_last_4(slice3)
+#
+# pleh = [1,2,3,4,5,6,7]
+#
+# def reverse_evens(p):
+#     a = p[::-1]
+#     b = []
+#     if len(a) % 2 == 0:
+#         b.extend(a[1::2])
+#     elif len(a) % 2 != 0:
+#         b.extend(a[0::2])
+#     print(b)
+#
+#
+#
+# reverse_evens(pleh)
+# pleh = [1,2,3,4,5]
+# reverse_evens(pleh)
+
+# a_list = [1,2,3]
+# b_list = a_list[:]
+# print(b_list)
+
+def sillycase(x):
+    length = len(x)
+    if length % 2 == 0:
+        d = int(length / 2)
+        print("{}{}".format(x[:d].lower(),x[d:].upper()))
+    elif length % 2 != 0:
+        d = int((length) / 2)
+        print("{}{}".format(x[:d].lower(), x[d:].upper()))
+
+m = "justin"
+i = "jessica"
+s = "brad"
 
 
-
+sillycase(m)
+sillycase(i)
+sillycase(s)
 
 
 
