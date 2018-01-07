@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2bfcbe1e-485d-4e2e-9219-c0e2b63b2d89" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practice_daily.py" afterPath="$PROJECT_DIR$/practice_daily.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py" afterPath="$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +18,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="practice_daily.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/practice_daily.py">
+      <file leaf-file-name="randomNumbersFillNumberLine&amp;countersEachTime.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="698" column="1" lean-forward="true" selection-start-line="698" selection-start-column="1" selection-end-line="698" selection-end-column="1" />
+            <state relative-caret-position="201">
+              <caret line="47" column="27" lean-forward="false" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -66,11 +66,11 @@
         <option value="$PROJECT_DIR$/letter_game.py" />
         <option value="$PROJECT_DIR$/bankingClass.py" />
         <option value="$PROJECT_DIR$/shopping_list.py" />
-        <option value="$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py" />
         <option value="$PROJECT_DIR$/guess_password.py" />
         <option value="$PROJECT_DIR$/test_target.html" />
         <option value="$PROJECT_DIR$/data_scrap_crypto_search.py" />
         <option value="$PROJECT_DIR$/practice_daily.py" />
+        <option value="$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py" />
       </list>
     </option>
   </component>
@@ -95,8 +95,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -111,6 +109,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -118,7 +118,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="Python.practice_daily">
+  <component name="RunManager" selected="Python.randomNumbersFillNumberLine&amp;countersEachTime">
     <configuration default="false" name="practice_daily" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -347,10 +347,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.practice_daily" />
-        <item index="1" class="java.lang.String" itemvalue="Python.data_scrap_crypto_search" />
-        <item index="2" class="java.lang.String" itemvalue="Python.guess_password" />
-        <item index="3" class="java.lang.String" itemvalue="Python.randomNumbersFillNumberLine&amp;countersEachTime" />
+        <item index="0" class="java.lang.String" itemvalue="Python.randomNumbersFillNumberLine&amp;countersEachTime" />
+        <item index="1" class="java.lang.String" itemvalue="Python.practice_daily" />
+        <item index="2" class="java.lang.String" itemvalue="Python.data_scrap_crypto_search" />
+        <item index="3" class="java.lang.String" itemvalue="Python.guess_password" />
         <item index="4" class="java.lang.String" itemvalue="Python.bankingClass" />
       </list>
     </recent_temporary>
@@ -383,7 +383,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.056368962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19765739" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -682,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comp_guess_num.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bankingClass.py" />
     <entry file="file://$PROJECT_DIR$/../NEW/Hangman.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -706,20 +699,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/guess_password.py" />
     <entry file="file://$PROJECT_DIR$/test_target.html" />
-    <entry file="file://$PROJECT_DIR$/data_scrap_crypto_search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="42" column="35" lean-forward="false" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="17" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shopping_list.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -728,10 +707,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/comp_guess_num.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_scrap_crypto_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="42" column="35" lean-forward="false" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/practice_daily.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="698" column="1" lean-forward="true" selection-start-line="698" selection-start-column="1" selection-end-line="698" selection-end-column="1" />
+          <caret line="698" column="1" lean-forward="false" selection-start-line="698" selection-start-column="1" selection-end-line="698" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="47" column="27" lean-forward="false" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
           <folding />
         </state>
       </provider>

@@ -33,44 +33,32 @@ def get_random_number(x):
 			break
 
 
-def find_the_perfect_amount(y,z):
-	total_tries = 0
+def find_the_perfect_amount(y):
 	life = [0]
-	for i in range(z,y):
+	ran = range(y,121)
+	for i in ran:
 		check_zeros = get_random_number(i)
 		for nums in check_zeros:
 			if nums == 0:
-				# print("New starting point {}".format(i))
 				life[0] = 1
-				life.append(i)
-				find_the_perfect_amount(y,i+1)
-				break
-			elif nums != 0:
-				total_tries += 1
-		if total_tries ==10:
-			next_num = int(str(y)+"0")
-			if(next_num < 10000000000000000000000000000000000000000000):
-				find_the_perfect_amount(next_num,i)
-				break
-			else:
-				# print("Good job. {} is the required number of tries.".format(i))
-				break
+				if len(life) <2:
+					life.append(i)
+				elif len(life) >1:
+					life[1] = i
+				return life
 	return life
 
-
 def get_odds(x):
-	counter = 0
-	while True:
-		new_num = find_the_perfect_amount(10000,x)
+	num_zeros = 0
+	counter = []
+	while len(counter) < 11:
+		new_num = find_the_perfect_amount(x)
 		if new_num[0] == 0:
-			continue
+			num_zeros += 1
 		elif new_num[0] == 1:
-			counter += 1
-			print(new_num[1])
-		elif counter > 10:
-			print(counter)
-		else:
-			print("Hi")
+			counter.append(new_num[1])
+	print(num_zeros,counter)
+
 
 
 
