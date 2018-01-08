@@ -711,6 +711,156 @@
 # #     print(i)
 # print(list(my_gen))
 
+# names = {"teachers":{1:{"first_name":"Joe","last_name":"Smith"},2:{"first_name":"Tom","last_name":"Brown"}},"mentors":{1:{"first_name":"Jim","last_name":"Chill"}}}
+# print(names["teachers"][1]['first_name'])
+#
+# def get_teachers_names():
+#     for i in names["teachers"]:
+#         yield names['teachers'][i]['first_name'], names['teachers'][i]['last_name']
+#
+# print(list(get_teachers_names()))
+# del names["teachers"]
+# print(names)
+# names["teachers"] = {1:{"first_name":"Joe","last_name":"Smith"}}
+# print(names)
+# names["teachers"].update({2:{"first_name":"Tom","last_name":"Brown"}})
+# print(names)
+
+# def packer(**kwargs):
+#     print(kwargs)
+#
+#
+# packing = packer(name="Jessica",num=42,pet="Brutus",brother="Justin")
+#
+# def unpacker(first_name=None,last_name=None):
+#     if first_name and last_name:
+#         print("Hi {} {}".format(first_name,last_name))
+#     else:
+#         print("Hi no name!")
+#
+# unpacker(**{"last_name":"Norm","first_name":"Sloopy"})
+
+# template = "Hi I'm {name} and I love to eat {food}!"
+#
+# # def string_factory(x):
+# #     new = []
+# #     for i in x:
+# #         new.append(template.format(name = i['name'],food = i['food']))
+# #     print(new)
+# <3 <3 <3 <3
+# def string_factory(x):
+#     new = [ template.format(**i) for i in x]
+#     print(new)
+#
+# values = [{"name":"Michelle","food":"sushi"},{"name":"Chase","food":"cake"}]
+#
+# string_factory(values)
+
+# try_again = {"up":1,"down":0,"left":-1,"right":2}
+# # for key in try_again.keys():
+# #     print(key)
+# # for value in try_again.values():
+# #     print(value)
+#
+# for items in try_again.items():
+#     print(items)
+
+# sen = "I do not like it Sam I Am"
+#
+# def word_count(x):
+#     a = x.lower().split()
+#     d = dict.fromkeys(a,0)
+#     for word in a: d[word]+=1
+#     print(d)
+#
+# word_count(sen)
+
+teachers = {'A B':['jQ',"Qj"],'C D':['U1','1U','11UU'],'E F':['Bl'],'G H':['CC','DI','JJ','OO','P0']}
+
+# def num_teachers(x):
+#     counter=0
+#     for key in x.keys():
+#         counter+=1
+#     print(counter)
+#
+# num_teachers(teachers)
+#
+# def num_courses(x):
+#     counter = 0
+#     for i in x:
+#         for a in x[i]:
+#             counter+=1
+#     print(counter)
+#
+# num_courses(teachers)
+
+# def courses(x):
+#     a = []
+#     for i in x:
+#         for j in x[i]:
+#             a.append(j)
+#     print(a)
+#
+# courses(teachers)
+
+# def most_courses(x):
+#     a = {}
+#     b = []
+#     for i in x:
+#         a.update({len(x[i]):i})
+#         b.append(len(x[i]))
+#     b.sort()
+#     print(a[b[-1]])
+#
+# most_courses(teachers)
+
+def stats(x):
+    a = []
+    for i in x:
+        b = [i,len(x[i])]
+        a.append(b)
+    print(a)
+
+stats(teachers)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
