@@ -774,8 +774,8 @@
 #     print(d)
 #
 # word_count(sen)
-
-teachers = {'A B':['jQ',"Qj"],'C D':['U1','1U','11UU'],'E F':['Bl'],'G H':['CC','DI','JJ','OO','P0']}
+#
+# teachers = {'A B':['jQ',"Qj"],'C D':['U1','1U','11UU'],'E F':['Bl'],'G H':['CC','DI','JJ','OO','P0']}
 
 # def num_teachers(x):
 #     counter=0
@@ -814,14 +814,133 @@ teachers = {'A B':['jQ',"Qj"],'C D':['U1','1U','11UU'],'E F':['Bl'],'G H':['CC',
 #
 # most_courses(teachers)
 
-def stats(x):
-    a = []
-    for i in x:
-        b = [i,len(x[i])]
-        a.append(b)
-    print(a)
+# def stats(x):
+#     a = []
+#     for i in x:
+#         b = [i,len(x[i])]
+#         a.append(b)
+#     print(a)
+#
+# stats(teachers)
 
-stats(teachers)
+#tuples
+#
+# def add(*nums):
+#     total = 0
+#     for num in nums:
+#         total += num
+#     return total
+#
+# print(add(5,5,5))
+#
+# def add(base,*args):
+#     total = base
+#     for num in args:
+#         total+=num
+#     return total
+#
+# print(add(5,20))
+#
+#
+# def multiply(base,*args):
+#     total = base
+#     for arg in args:
+#         total *= arg
+#     return total
+#
+# print(multiply(5,5))
+
+# course_minutes = {"Python":60,"Django":100,"Flask":190,"Java":200}
+#
+# for course,minutes in course_minutes.items():
+#     print("{} is {} minutes long".format(course,minutes))
+#
+# ages = {"George":10,"James":15,"Michelle":2,"Tabby":1,"Gigi":100}
+#
+# for name,age in ages.items():
+#     print("{} is {} years old.".format(name,age))
+
+# print(list(enumerate("abc")))
+#
+# for index,letter in enumerate("abcdefghijklmnopqrstuvwxyz",start=1):
+#     print(index,letter)
+
+name = "jessica cottner"
+
+# def stringcases(x):
+#     up = x.upper()
+#     down = x.lower()
+#     left = ""
+#     ind = 0
+#     for index,letter in enumerate(down):
+#         if ind != 0:
+#             letter = letter.upper()
+#             ind = 0
+#         if index==0:
+#             letter = letter.upper()
+#             left+=letter
+#         elif letter == " ":
+#             ind = index+1
+#             left+=letter
+#         else:
+#             left+=letter
+#     print(left)
+
+# def stringcases(x):
+#     up = x.upper()
+#     down = x.lower()
+#     left = x.title()
+#     # left = " ".join([word[0].upper() + word[1:] for word in x.split()])
+#     right = x[::-1]
+#     ans = (up,down,left,right)
+#     print(ans)
+
+
+# stringcases(name)
+
+L1 = [1,2,3,4]
+L2 = ("red","blue","yellow","green")
+
+def combo(x,y):
+    ans = []
+    for index, arg in enumerate(x):
+        for i, j in enumerate(y):
+            if index == i:
+                ans.append((arg,j))
+    print(ans)
+
+
+combo(L1,L2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
