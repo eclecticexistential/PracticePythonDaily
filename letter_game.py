@@ -46,27 +46,29 @@ def winning_guess(guess,secret_word):
 
 def play(done):
     clear()
-    secret_word = words.get_words()
-    bad_guesses = []
-    good_guesses = []
+    secret_word = words.get_words() # set(words.get_words())
+    bad_guesses = [] #set() ?
+    good_guesses = [] # set() ?
 
     while True:
         draw(bad_guesses, good_guesses, secret_word)
-        guess = get_guess(bad_guesses,good_guesses)
+        guess = get_guess(bad_guesses,good_guesses) #bad_guesses | good_guesses set?
         winning_guess(guess,secret_word)
 
         if guess in secret_word:
-            good_guesses.append(guess)
+            good_guesses.append(guess) #use add instead because set
+            #if secret_word is a set the following part can be omitted
             found = True
             for letter in secret_word:
                 if letter not in good_guesses:
                     found = False
+            # and the next if statement would be "if not word_set.symmetric_difference(correct):
             if found:
                 print("You win!")
                 print("The secret word was {}".format(secret_word))
                 done = True
         else:
-            bad_guesses.append(guess)
+            bad_guesses.append(guess) #use add instead because set
             if len(bad_guesses) == 7:
                 draw(bad_guesses,good_guesses,secret_word)
                 print("You lost!")

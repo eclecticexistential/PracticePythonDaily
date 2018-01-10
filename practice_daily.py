@@ -898,32 +898,206 @@ name = "jessica cottner"
 
 # stringcases(name)
 
-L1 = [1,2,3,4]
-L2 = ("red","blue","yellow","green")
-
-def combo(x,y):
-    ans = []
-    for index, arg in enumerate(x):
-        for i, j in enumerate(y):
-            if index == i:
-                ans.append((arg,j))
-    print(ans)
-
-
-combo(L1,L2)
-
-
-
-
-
-
-
-
-
-
-
+# L1 = [1,2,3,4]
+# L2 = ("red","blue","yellow","green")
+#
+# def combo(x,y):
+#     ans = []
+#     for index, arg in enumerate(x):
+#         for i, j in enumerate(y):
+#             if index == i:
+#                 ans.append((arg,j))
+#     print(ans)
+#
+#
+# combo(L1,L2)
+#
+# def fib(num):
+#     a,b = 0,1
+#     for i in range(0,num):
+#         yield "{}:{}".format(i+1,a)
+#         a,b = b,a+b
+#
+# for item in fib(10):
+#     print(item)
 
 
+#sets
+
+# low_primes = {1,3,5,7,11,13}
+# low_primes.add(17)
+# low_primes.update({19,23},{2,29})
+# low_primes.add(15)
+# low_primes.remove(15)
+# print(low_primes)
+# song = set(["hi","low","no"])
+# print(song)
+
+# import time
+#
+# def untap(name):
+#     print("Untap.")
+#     time.sleep(1)
+#     print("Any lands you have that can be untapped, are untapped now {}.".format(name))
+#     time.sleep(1)
+#
+# def upkeep():
+#     print("Upkeep.")
+#     time.sleep(1)
+#     print("All upkeep triggers resolve now.")
+#     time.sleep(1)
+#
+# def draw():
+#     print("Draw permitted card amount.")
+#     time.sleep(1.5)
+#
+# def main_phase():
+#     lands = input("Play land?").lower()
+#     if lands == "yes":
+#         print("Played land.")
+#     ans = input("Tap land?").lower()
+#     if ans == "yes":
+#         move = input("Play card?").lower()
+#         if move =="yes":
+#             print("Played card.")
+#         elif move == "no":
+#             print("Bruh.")
+#             return
+#     elif ans == "no":
+#         return
+#
+# def combat(name):
+#     print("Begin combat.")
+#     ans = input("Response?").lower()
+#     if ans == "yes":
+#         print("Resolve response.")
+#     elif ans == "no":
+#         print("Declare attackers.")
+#     time.sleep(0.6)
+#     attack = int(input("Number of attackers?"))
+#     ans = input("Response?").lower()
+#     if ans == "yes":
+#         print("Resolve response.")
+#     elif ans == "no":
+#         print("Declare blockers.")
+#     block = int(input("Number of blockers?"))
+#     ans = input("Response?").lower()
+#     if ans == "yes":
+#         print("Resolve response.")
+#     dam = input("Was lethal damage taken?").lower()
+#     if dam == "yes":
+#         amount = int(input("How much?"))
+#         # player = input("Player A or B?")
+#         return amount
+#     elif dam == "no" and attack == block:
+#             return 0
+#     elif dam == "no" and attack != block:
+#         ans = input("Are you sure no lethal damage was taken directly, {}?".format(name)).lower()
+#         if ans == "yes":
+#             return 0
+#         elif ans == "no":
+#             amount = input(int("How much damage got through?"))
+#             return amount
+#
+# def main_phase_two():
+#     print("Main phase two.")
+#     ans = input("Spell to do direct damage?").lower()
+#     if ans == 'yes':
+#         amount = input(int("How much?"))
+#         return amount
+#     elif ans == "no":
+#         return 0
+#
+# def end_step(name):
+#     turn(name)
+#
+# def turn(name):
+#     lifetotal = 20
+#     untap(name)
+#     upkeep()
+#     draw()
+#     main_phase()
+#     ans = input("Move to combat {}?".format(name)).lower()
+#     if ans == "yes":
+#         a = combat(name)
+#         if a != 0:
+#             lifetotal -=a
+#     b = main_phase_two()
+#     if b != 0:
+#         lifetotal -=b
+#     eot = input("Ready to end turn {}?".format(name)).lower()
+#     if eot == "yes" and lifetotal !=0:
+#         end_step(name)
+#     elif lifetotal <= 0:
+#         print("You win {}! Game Over.".format(name))
+#         return
+#
+# def play():
+#     print("Greetings!")
+#     name = input("What is your name?")
+#     print("Right on {}! Let's play!".format(name))
+#     choice = input("Play or draw?").lower()
+#     turn(name)
+#
+#
+# play()
+#
+# set1 = set(range(10))
+# set2 = {1,2,3,5,7,11,13,17,19,23}
+# print(set1.union(set2))
+# print(set1,set2)
+# print(set1.difference(set2))
+# print(set2.difference(set1))
+# print(set1-set2)
+# print(set2-set1)
+# print(set1 ^ set2)
+# print(set2.symmetric_difference(set1))
+# print(set1.intersection(set2))
+# print(set1 & set2)
+# print(set1 <= set2)
+# print(set1 != set2)
+
+courses = {
+    "Python Basics":{"Python","functions","variables"},
+    "Java Basics":{"Java","strings",'input','loops'},
+    "PHP Basics":{"PHP",'variables','floats','HTML'},
+    "Ruby Basics":{"Ruby",'strings','conditions','functions'}
+}
+
+# def covers(x):
+#     for course in courses:
+#         if len(courses[course] & x) == len(x):
+#             return [course]
+# def covers(x):
+#     solution = []
+#     for key,value in courses.items():
+#         if value.issuperset(x):
+#             solution.append(key)
+#             break
+#     return solution
+#
+def covers(a):
+    for k,v in courses.items():
+        c = v&a
+        if c==a:
+            return [k]
+# def covers(x):
+#     c_list = []
+#     for i in courses:
+#         if x.intersection(courses[i]):
+#             c_list.append(i)
+#     return c_list
+
+# def covers(x):
+#     y = []
+#     for course in courses:
+#         if courses[course] & x:
+#             y.append(course)
+#     return y
+
+
+print(covers({"Python","functions"}))
+print(covers({'strings','input'}))
 
 
 
