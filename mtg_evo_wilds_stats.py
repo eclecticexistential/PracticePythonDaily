@@ -18,15 +18,13 @@ def remove_card_from_deck(deck,hand):
     hand.append(a)
     return [deck,hand]
 
-def hands():
-    non_evo_wilds = [42, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    evo_wilds = [42, 10, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    random.shuffle(evo_wilds)
-    random.shuffle(non_evo_wilds)
+def hands(x):
+    # non_evo_wilds = [42, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 42]
+    # evo_wilds = [42, 10, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 42]
+    random.shuffle(x)
     # mixes up deck
-    player1 = open_hand(evo_wilds)
-    player2 = open_hand(non_evo_wilds)
-    data = [player1[0],player1[1],player1[2],player2[0],player2[1],player2[2]]
+    player_stats = open_hand(x)
+    data = [player_stats[0],player_stats[1],player_stats[2]]
     return data
 
 def hand_check(hand):
@@ -43,6 +41,7 @@ def play_land(deck,hand,field):
             hand.remove(card)
             color2 = 0
             color3 = 0
+            #checks to see which land is needed
             for lands in field:
                 if lands == 2:
                     color2+= 1
@@ -54,16 +53,20 @@ def play_land(deck,hand,field):
                     if cards == 3:
                         field.append(cards)
                         deck.remove(cards)
+                        random.shuffle(deck)
                         return
                 elif color3 > color2:
                     if cards == 2:
                         field.append(cards)
                         deck.remove(cards)
+                        random.shuffle(deck)
                         return
                 elif cards == 2 or cards == 3:
-                    field.append(cards)
-                    deck.remove(cards)
-                    return
+                    if color2 >=4 and color3 >=4:
+                        field.append(cards)
+                        deck.remove(cards)
+                        random.shuffle(deck)
+                        return
         #plays land otherwise
         elif card == 2 or card == 3:
             field.append(card)
@@ -78,15 +81,21 @@ def check_field(hand,field):
             num2s += 1
         elif card == 3:
             num3s += 1
-    if num2s >= 3 and num3s >= 3:
+    if num2s >= 4 and num3s >= 4:
         for cards in hand:
             if cards == 42:
                 return "Winner!"
+    else:
+        mana = [num2s,num3s]
+        return mana
 
 
 def turn(hand, deck=None,field=None):
     counter = 0
     wins = 0
+    stuck_mana1 = 0
+    stuck_mana2 = 0
+    stuck_mana3 = 0
     while len(deck) > 0:
         remove_card_from_deck(deck,hand)
         play_land(deck,hand,field)
@@ -95,26 +104,40 @@ def turn(hand, deck=None,field=None):
         if game_over == "Winner!":
             wins += 1
             break
+        #takes into account getting mana starved
+        elif game_over != "Winner!":
+            if len(field) == 1:
+                stuck_mana1 += 1
+            elif len(field) == 2:
+                stuck_mana2 += 1
+            elif len(field) == 3:
+                stuck_mana3 += 1
+        if stuck_mana1 > 1 or stuck_mana2 > 3 or stuck_mana3 >3:
+            break
         counter += 1
     return counter
 
 def status():
-    data_set = hands()
+    non_evo_wilds = [42, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                     1, 1, 1, 1, 1, 1, 42]
+    evo_wilds = [42, 10, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                 1, 1, 1, 1, 1, 42]
+    player1 = hands(evo_wilds)
+    player2 = hands(non_evo_wilds)
     #unpacking player 1 stats
-    p1_hand = data_set[0]
-    p1_deck = data_set[1]
-    p1_field = data_set[2]
+    p1_hand = player1[0]
+    p1_deck = player1[1]
+    p1_field = player1[2]
     #taking turn
     totals_for_p1 = turn(p1_hand, deck=p1_deck,field=p1_field)
     #unpacking player 2 stats
-    p2_hand = data_set[3]
-    p2_deck = data_set[4]
-    p2_field = data_set[5]
+    p2_hand = player2[0]
+    p2_deck = player2[1]
+    p2_field = player2[2]
     #taking turn
     totals_for_p2 = turn(p2_hand,deck=p2_deck,field=p2_field)
     stats = [totals_for_p1,totals_for_p2]
     return stats
-
 
 def out_of_all_games():
     evo_wilds_wins = 0
@@ -122,20 +145,20 @@ def out_of_all_games():
     ties = 0
     evo_draw_steps = []
     non_evo_wins_steps = []
-    games = 10000
+    games = 100
     while games > 0:
-        a = status()
-        evo_draw_steps.append(a[0])
-        non_evo_wins_steps.append(a[1])
-        if a[0] > a[1]:
+        draws_into_win = status()
+        evo_draw_steps.append(draws_into_win[0])
+        non_evo_wins_steps.append(draws_into_win[1])
+        if draws_into_win[0] > draws_into_win[1]:
             evo_wilds_wins += 1
-        elif a[0] < a[1]:
+        elif draws_into_win[0] < draws_into_win[1]:
             non_evo_wins += 1
         else:
             ties += 1
         games -= 1
-    print("Evo wins {}".format(evo_wilds_wins))
-    print("Non Evo wins {}".format(non_evo_wins))
+    print("Evo Deck Wins {}".format(evo_wilds_wins))
+    print("Non Evo Deck Wins {}".format(non_evo_wins))
     print("Ties {}\n".format(ties))
     print("With Evolving Wilds: {} Cards Drawn Into Win Condition.".format(sum(evo_draw_steps)/len(evo_draw_steps)))
     print("Without Evolving Wilds: {} Cards Drawn Into Win Condition.".format(sum(non_evo_wins_steps)/len(non_evo_wins_steps)))
