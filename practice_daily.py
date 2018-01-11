@@ -865,7 +865,7 @@
 # for index,letter in enumerate("abcdefghijklmnopqrstuvwxyz",start=1):
 #     print(index,letter)
 
-name = "jessica cottner"
+# name = "jessica cottner"
 
 # def stringcases(x):
 #     up = x.upper()
@@ -1041,7 +1041,7 @@ name = "jessica cottner"
 #
 #
 # play()
-#
+
 # set1 = set(range(10))
 # set2 = {1,2,3,5,7,11,13,17,19,23}
 # print(set1.union(set2))
@@ -1057,30 +1057,30 @@ name = "jessica cottner"
 # print(set1 <= set2)
 # print(set1 != set2)
 
-courses = {
-    "Python Basics":{"Python","functions","variables"},
-    "Java Basics":{"Java","strings",'input','loops'},
-    "PHP Basics":{"PHP",'variables','floats','HTML'},
-    "Ruby Basics":{"Ruby",'strings','conditions','functions'}
-}
-
-# def covers(x):
-#     for course in courses:
-#         if len(courses[course] & x) == len(x):
-#             return [course]
-# def covers(x):
-#     solution = []
-#     for key,value in courses.items():
-#         if value.issuperset(x):
-#             solution.append(key)
-#             break
-#     return solution
+# courses = {
+#     "Python Basics":{"Python","functions","variables"},
+#     "Java Basics":{"Java","strings",'input','loops'},
+#     "PHP Basics":{"PHP",'variables','floats','HTML'},
+#     "Ruby Basics":{"Ruby",'strings','conditions','functions'}
+# }
 #
-def covers(a):
-    for k,v in courses.items():
-        c = v&a
-        if c==a:
-            return [k]
+# # def covers(x):
+# #     for course in courses:
+# #         if len(courses[course] & x) == len(x):
+# #             return [course]
+# # def covers(x):
+# #     solution = []
+# #     for key,value in courses.items():
+# #         if value.issuperset(x):
+# #             solution.append(key)
+# #             break
+# #     return solution
+# #
+# def covers(a):
+#     for k,v in courses.items():
+#         c = v&a
+#         if c==a:
+#             return [k]
 # def covers(x):
 #     c_list = []
 #     for i in courses:
@@ -1096,12 +1096,8 @@ def covers(a):
 #     return y
 
 
-print(covers({"Python","functions"}))
-print(covers({'strings','input'}))
-
-
-
-
+# print(covers({"Python","functions"}))
+# print(covers({'strings','input'}))
 
 
 

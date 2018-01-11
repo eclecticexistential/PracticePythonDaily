@@ -1,3 +1,5 @@
+import random
+
 def comp_guess_game():
     hidden_number = int(input("This is the secret number I've picked, between 1 and 10."))
     computer_guess = random.randint(1, 10)
