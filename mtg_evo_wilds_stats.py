@@ -19,15 +19,14 @@ def remove_card_from_deck(deck,hand):
     return [deck,hand]
 
 def hands(x):
-    # non_evo_wilds = [42, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 42]
-    # evo_wilds = [42, 10, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 42]
     random.shuffle(x)
     # mixes up deck
-    player_stats = open_hand(x)
-    data = [player_stats[0],player_stats[1],player_stats[2]]
-    return data
+    hand, deck, lands_on_field = open_hand(x)
+    #gets opening hand of 7 cards, removes them from deck, creates field variable: an array
+    return hand,deck,lands_on_field
 
 def hand_check(hand):
+    #discards a 1 to take into account creatures/spells that are played during each round
     if len(hand) > 7:
         for cards in hand:
             if cards == 1:
@@ -76,26 +75,28 @@ def play_land(deck,hand,field):
 def check_field(hand,field):
     num2s = 0
     num3s = 0
+    #counts the lands to see if an adequate amount of land is available to cast 'win condition' cards: 42
     for card in field:
         if card == 2:
             num2s += 1
         elif card == 3:
             num3s += 1
+    #8 mana total to cast "win condition" cards
     if num2s >= 4 and num3s >= 4:
         for cards in hand:
             if cards == 42:
                 return "Winner!"
-    else:
-        mana = [num2s,num3s]
-        return mana
 
 
 def turn(hand, deck=None,field=None):
     counter = 0
+    #counts number of draws
     wins = 0
+    #when this is 1 game ends
     stuck_mana1 = 0
     stuck_mana2 = 0
     stuck_mana3 = 0
+    #tallies when player is stuck with either 1,2 or 3 mana for several rounds...commonly leading to a loss IRL
     while len(deck) > 0:
         remove_card_from_deck(deck,hand)
         play_land(deck,hand,field)
@@ -120,21 +121,14 @@ def turn(hand, deck=None,field=None):
 def status():
     non_evo_wilds = [42, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                      1, 1, 1, 1, 1, 1, 42]
-    evo_wilds = [42, 10, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    #has two win condition cards
+    evo_wilds = [42, 10, 10, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                  1, 1, 1, 1, 1, 42]
-    player1 = hands(evo_wilds)
-    player2 = hands(non_evo_wilds)
-    #unpacking player 1 stats
-    p1_hand = player1[0]
-    p1_deck = player1[1]
-    p1_field = player1[2]
-    #taking turn
+    #has two win condition cards, two evolving wilds, 7 of one color, 8 of another, and 21 creature/spells
+    p1_hand, p1_deck, p1_field = hands(evo_wilds)
+    p2_hand, p2_deck, p2_field = hands(non_evo_wilds)
+    #taking turns
     totals_for_p1 = turn(p1_hand, deck=p1_deck,field=p1_field)
-    #unpacking player 2 stats
-    p2_hand = player2[0]
-    p2_deck = player2[1]
-    p2_field = player2[2]
-    #taking turn
     totals_for_p2 = turn(p2_hand,deck=p2_deck,field=p2_field)
     stats = [totals_for_p1,totals_for_p2]
     return stats
@@ -147,12 +141,14 @@ def out_of_all_games():
     non_evo_wins_steps = []
     games = 100
     while games > 0:
-        draws_into_win = status()
-        evo_draw_steps.append(draws_into_win[0])
-        non_evo_wins_steps.append(draws_into_win[1])
-        if draws_into_win[0] > draws_into_win[1]:
+        p1_draws_into_win, p2_draws_into_win = status()
+
+        evo_draw_steps.append(p1_draws_into_win)
+        non_evo_wins_steps.append(p2_draws_into_win)
+
+        if p1_draws_into_win > p2_draws_into_win:
             evo_wilds_wins += 1
-        elif draws_into_win[0] < draws_into_win[1]:
+        elif p1_draws_into_win < p2_draws_into_win:
             non_evo_wins += 1
         else:
             ties += 1

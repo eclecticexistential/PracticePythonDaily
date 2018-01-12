@@ -1099,9 +1099,44 @@
 # print(covers({"Python","functions"}))
 # print(covers({'strings','input'}))
 
+# print(random.sample(range(10000000), 60))
+#
+#
+# def move(player,direction):
+#     x,y,hp = player
+#     a,b = direction
+#     x += a
+#     y += b
+#     if x < 0:
+#         x = 0
+#         hp-=5
+#     if x > 9:
+#         x = 9
+#         hp-=5
+#     if y < 0:
+#         y = 0
+#         hp-=5
+#     if y > 9:
+#         y = 9
+#         hp -= 5
+#     return x,y,hp
+#
+# # print(move((1,1,10),(-1,0)))
+# # print(move((0,1,10),(-1,0)))
+# print(move((0,9,5),(0,1)))
 
 
-
+# tiles = ('-',' ','-',' ','-','||',
+#          '_',"|","_","|",'_',"|",'||',
+#          '&',' ','_',' ','||',
+#          ' ', ' ', ' ', '^', ' ','||')
+#
+#
+# for tile in tiles:
+#     if tile != "||":
+#         print(tile,end="")
+#     else:
+#         print()
 
 
 

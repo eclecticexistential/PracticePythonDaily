@@ -4,6 +4,7 @@
     <list default="true" id="2bfcbe1e-485d-4e2e-9219-c0e2b63b2d89" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mtg_evo_wilds_stats.py" afterPath="$PROJECT_DIR$/mtg_evo_wilds_stats.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practice_daily.py" afterPath="$PROJECT_DIR$/practice_daily.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,19 +22,31 @@
       <file leaf-file-name="practice_daily.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/practice_daily.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18683">
-              <caret line="1099" column="36" lean-forward="false" selection-start-line="1099" selection-start-column="36" selection-end-line="1099" selection-end-column="36" />
+            <state relative-caret-position="226">
+              <caret line="1139" column="0" lean-forward="true" selection-start-line="1139" selection-start-column="0" selection-end-line="1139" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mtg_evo_wilds_stats.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mtg_evo_wilds_stats.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mtg_evo_wilds_stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="160" column="31" lean-forward="false" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="31" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dungeon_game.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dungeon_game.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="111" column="39" lean-forward="false" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,6 +69,7 @@
       <find>sleep</find>
       <find>rand</find>
       <find>ran</find>
+      <find>samples</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,8 +89,9 @@
         <option value="$PROJECT_DIR$/data_scrap_crypto_search.py" />
         <option value="$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py" />
         <option value="$PROJECT_DIR$/comp_guess_num.py" />
-        <option value="$PROJECT_DIR$/practice_daily.py" />
         <option value="$PROJECT_DIR$/mtg_evo_wilds_stats.py" />
+        <option value="$PROJECT_DIR$/dungeon_game.py" />
+        <option value="$PROJECT_DIR$/practice_daily.py" />
       </list>
     </option>
   </component>
@@ -101,6 +116,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -115,17 +132,15 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NEW/play21.py" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="del&#9;null&#9;null&#10;time&#9;FILE&#9;file://C:/Users/Earthling/.PyCharmCE2016.3/system/python_stubs/-333844406/time.py" />
+    <property name="SearchEverywhereHistoryKey" value="random&#9;FILE&#9;file://C:/Users/Earthling/AppData/Local/Programs/Python/Python35-32/Lib/random.py&#10;del&#9;null&#9;null&#10;time&#9;FILE&#9;file://C:/Users/Earthling/.PyCharmCE2016.3/system/python_stubs/-333844406/time.py" />
   </component>
-  <component name="RunManager" selected="Python.mtg_evo_wilds_stats">
+  <component name="RunManager" selected="Python.dungeon_game">
     <configuration default="false" name="practice_daily" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -160,23 +175,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="data_scrap_crypto_search" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="practice100days" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_scrap_crypto_search.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="shopping_list" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -207,6 +205,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="practice100days" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mtg_evo_wilds_stats.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="dungeon_game" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="practice100days" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dungeon_game.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -348,17 +363,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.practice_daily" />
       <item index="1" class="java.lang.String" itemvalue="Python.randomNumbersFillNumberLine&amp;countersEachTime" />
-      <item index="2" class="java.lang.String" itemvalue="Python.data_scrap_crypto_search" />
-      <item index="3" class="java.lang.String" itemvalue="Python.shopping_list" />
-      <item index="4" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
+      <item index="2" class="java.lang.String" itemvalue="Python.shopping_list" />
+      <item index="3" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
+      <item index="4" class="java.lang.String" itemvalue="Python.dungeon_game" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
+        <item index="0" class="java.lang.String" itemvalue="Python.dungeon_game" />
         <item index="1" class="java.lang.String" itemvalue="Python.practice_daily" />
-        <item index="2" class="java.lang.String" itemvalue="Python.shopping_list" />
-        <item index="3" class="java.lang.String" itemvalue="Python.randomNumbersFillNumberLine&amp;countersEachTime" />
-        <item index="4" class="java.lang.String" itemvalue="Python.data_scrap_crypto_search" />
+        <item index="2" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
+        <item index="3" class="java.lang.String" itemvalue="Python.shopping_list" />
+        <item index="4" class="java.lang.String" itemvalue="Python.randomNumbersFillNumberLine&amp;countersEachTime" />
       </list>
     </recent_temporary>
   </component>
@@ -428,21 +443,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shopping_list.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="98" lean-forward="false" selection-start-line="36" selection-start-column="98" selection-end-line="36" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice_daily.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bankingClass.py" />
     <entry file="file://$PROJECT_DIR$/letter_game.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -736,19 +736,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practice_daily.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35-32/Lib/random.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18683">
-          <caret line="1099" column="36" lean-forward="false" selection-start-line="1099" selection-start-column="36" selection-end-line="1099" selection-end-column="36" />
+        <state relative-caret-position="287">
+          <caret line="294" column="55" lean-forward="true" selection-start-line="294" selection-start-column="28" selection-end-line="294" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mtg_evo_wilds_stats.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="160" column="31" lean-forward="false" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="31" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practice_daily.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="1139" column="0" lean-forward="true" selection-start-line="1139" selection-start-column="0" selection-end-line="1139" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dungeon_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="111" column="39" lean-forward="false" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
