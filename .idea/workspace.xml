@@ -4,7 +4,6 @@
     <list default="true" id="2bfcbe1e-485d-4e2e-9219-c0e2b63b2d89" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mtg_evo_wilds_stats.py" afterPath="$PROJECT_DIR$/mtg_evo_wilds_stats.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practice_daily.py" afterPath="$PROJECT_DIR$/practice_daily.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,28 +21,28 @@
       <file leaf-file-name="practice_daily.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/practice_daily.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="1139" column="0" lean-forward="true" selection-start-line="1139" selection-start-column="0" selection-end-line="1139" selection-end-column="0" />
+            <state relative-caret-position="19363">
+              <caret line="1139" column="0" lean-forward="false" selection-start-line="1139" selection-start-column="0" selection-end-line="1139" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mtg_evo_wilds_stats.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mtg_evo_wilds_stats.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mtg_evo_wilds_stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="133">
+              <caret line="345" column="12" lean-forward="false" selection-start-line="345" selection-start-column="12" selection-end-line="345" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dungeon_game.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dungeon_game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dungeon_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="111" column="39" lean-forward="false" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+            <state relative-caret-position="17">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -89,9 +88,9 @@
         <option value="$PROJECT_DIR$/data_scrap_crypto_search.py" />
         <option value="$PROJECT_DIR$/randomNumbersFillNumberLine&amp;countersEachTime.py" />
         <option value="$PROJECT_DIR$/comp_guess_num.py" />
-        <option value="$PROJECT_DIR$/mtg_evo_wilds_stats.py" />
         <option value="$PROJECT_DIR$/dungeon_game.py" />
         <option value="$PROJECT_DIR$/practice_daily.py" />
+        <option value="$PROJECT_DIR$/mtg_evo_wilds_stats.py" />
       </list>
     </option>
   </component>
@@ -116,7 +115,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -132,6 +130,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -140,7 +139,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="random&#9;FILE&#9;file://C:/Users/Earthling/AppData/Local/Programs/Python/Python35-32/Lib/random.py&#10;del&#9;null&#9;null&#10;time&#9;FILE&#9;file://C:/Users/Earthling/.PyCharmCE2016.3/system/python_stubs/-333844406/time.py" />
   </component>
-  <component name="RunManager" selected="Python.dungeon_game">
+  <component name="RunManager" selected="Python.mtg_evo_wilds_stats">
     <configuration default="false" name="practice_daily" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -369,9 +368,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.dungeon_game" />
-        <item index="1" class="java.lang.String" itemvalue="Python.practice_daily" />
-        <item index="2" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
+        <item index="0" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
+        <item index="1" class="java.lang.String" itemvalue="Python.dungeon_game" />
+        <item index="2" class="java.lang.String" itemvalue="Python.practice_daily" />
         <item index="3" class="java.lang.String" itemvalue="Python.shopping_list" />
         <item index="4" class="java.lang.String" itemvalue="Python.randomNumbersFillNumberLine&amp;countersEachTime" />
       </list>
@@ -413,7 +412,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3264402" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25997046" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -740,33 +739,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="294" column="55" lean-forward="true" selection-start-line="294" selection-start-column="28" selection-end-line="294" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mtg_evo_wilds_stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice_daily.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="1139" column="0" lean-forward="true" selection-start-line="1139" selection-start-column="0" selection-end-line="1139" selection-end-column="0" />
+        <state relative-caret-position="19363">
+          <caret line="1139" column="0" lean-forward="false" selection-start-line="1139" selection-start-column="0" selection-end-line="1139" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dungeon_game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="111" column="39" lean-forward="false" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+        <state relative-caret-position="17">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mtg_evo_wilds_stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="345" column="12" lean-forward="false" selection-start-line="345" selection-start-column="12" selection-end-line="345" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
