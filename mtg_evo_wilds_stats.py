@@ -4,13 +4,15 @@ import random
 def db(x):
     # each has 23 playables: half creatures (two big'uns), half spells (one removal for big'un), and 17 lands
     # evo decks has two that replace lands
+    # 42 = big creature, 2-4 mana, 8 = small creatures, 13 = direct damage, 33 = big creature removal, 9 = life gain
+    # 66 = tutor
     if x == 3:
-        non_evo_wilds_3m = [42, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 33, 42]
-        evo_wilds_3m = [42, 10, 10, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 33, 42]
+        non_evo_wilds_3m = [42, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 9, 66, 1, 1, 1, 1, 1, 1, 1, 1, 33, 42]
+        evo_wilds_3m = [42, 10, 10, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 9, 66, 1, 1, 1, 1, 1, 1, 1, 33, 42]
         return status(evo_wilds_3m, non_evo_wilds_3m, 3)
     elif x == 2:
-        non_evo_wilds_2m = [42, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 33, 42]
-        evo_wilds_2m = [42, 10, 10, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 1, 1, 1, 1, 1, 1, 1, 1, 1, 33, 42]
+        non_evo_wilds_2m = [42, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 9, 66, 1, 1, 1, 1, 1, 1, 1, 33, 42]
+        evo_wilds_2m = [42, 10, 10, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 9, 66, 1, 1, 1, 1, 1, 1, 1, 33, 42]
         return status(evo_wilds_2m, non_evo_wilds_2m, 2)
 
 
@@ -330,6 +332,42 @@ def check_creatures(battlefield):
     return damage
 
 
+def tutor(hand, deck, graveyard, untapped_mana, mana):
+    land1 = untapped_mana[0]
+    land2 = untapped_mana[1]
+    land3 = untapped_mana[2]
+    for card in hand:
+        if card == 66:
+            if mana == 2:
+                if land1 >= 1 and land2 >= 1:
+                    hand.remove(card)
+                    graveyard.append(card)
+                    for cards in deck:
+                        hand.append(cards)
+                        hand.append(cards)
+                        untapped_mana[0] -= 1
+                        untapped_mana[1] -= 1
+                        print("tutored")
+                        return 2
+            if mana == 3:
+                if land1 >= 1 and land2 >= 1 or land2 >= 1 and land3 >= 1 or land1 >= 1 and land3 >= 1:
+                    hand.remove(card)
+                    graveyard.append(card)
+                    for cards in deck:
+                        hand.append(cards)
+                        hand.append(cards)
+                        if land1 >= 1 and land2 >= 1:
+                            untapped_mana[0] -= 1
+                            untapped_mana[1] -= 1
+                        elif land2 >= 1 and land3 >= 1:
+                            untapped_mana[1] -= 1
+                            untapped_mana[2] -= 1
+                        elif land3 >= 1 and land1 >= 1:
+                            untapped_mana[0] -= 1
+                            untapped_mana[2] -= 1
+                        return 2
+
+
 def direct_damage(hand, graveyard, untapped_mana, mana):
     land1 = untapped_mana[0]
     land2 = untapped_mana[1]
@@ -357,6 +395,35 @@ def direct_damage(hand, graveyard, untapped_mana, mana):
                         untapped_mana[0] -= 1
                         untapped_mana[2] -= 1
                     return 3
+
+
+def life_gain(hand, graveyard, untapped_mana, mana):
+    land1 = untapped_mana[0]
+    land2 = untapped_mana[1]
+    land3 = untapped_mana[2]
+    for card in hand:
+        if card == 9:
+            if mana == 2:
+                if land1 >= 1 and land2 >= 1:
+                    hand.remove(card)
+                    graveyard.append(card)
+                    untapped_mana[0] -= 1
+                    untapped_mana[1] -= 1
+                    return 5
+            if mana == 3:
+                if land1 >= 1 and land2 >= 1 or land2 >= 1 and land3 >= 1 or land1 >= 1 and land3 >= 1:
+                    hand.remove(card)
+                    graveyard.append(card)
+                    if land1 >= 1 and land2 >= 1:
+                        untapped_mana[0] -= 1
+                        untapped_mana[1] -= 1
+                    elif land2 >= 1 and land3 >= 1:
+                        untapped_mana[1] -= 1
+                        untapped_mana[2] -= 1
+                    elif land3 >= 1 and land1 >= 1:
+                        untapped_mana[0] -= 1
+                        untapped_mana[2] -= 1
+                    return 5
 
 
 def removal(hand, field, p1_graveyard, p2_graveyard, untapped_mana, mana, player):
@@ -435,7 +502,7 @@ def define_winner():
     pass
 
 
-def take_turn(snap_shot, deck, hand, field, graveyard, opp_turns, opp_field, opp_graveyard, player, mana):
+def take_turn(snap_shot, deck, hand, field, graveyard, opp_turns, opp_field, opp_graveyard, player, life, mana):
     current_status = turn(hand, deck, field, graveyard, mana)
     untapped_mana = current_status[4]
     snap_shot.append(current_status[3])
@@ -445,12 +512,17 @@ def take_turn(snap_shot, deck, hand, field, graveyard, opp_turns, opp_field, opp
         return stats
     else:
         removal(hand, opp_field, graveyard, opp_graveyard, untapped_mana, mana, player)
+        if life >= 3:
+            tutor(hand, deck, graveyard, untapped_mana, mana)
         damage = direct_damage(hand, graveyard, untapped_mana, mana)
+        gained = life_gain(hand, graveyard, untapped_mana, mana)
         hand_check(hand, graveyard)
-        if damage != 3:
-            return
-        elif damage == 3:
+        if damage == 3:
             return damage
+        if gained == 5:
+            return gained
+        else:
+            return
 
 
 def combat_tricks(hand, field, life_total):
@@ -503,14 +575,18 @@ def play_the_game(board_state):
 # taking turns... goes_first determines who plays first
     if goes_first == 0:
         while True:
-            # print()
-            # print("Start of Round {}.".format(p1_turns +1))
-            # print("Player1 Field {} Hand {} Graveyard {} Life Total {}".format(p1_field, p1_hand, p1_grave, p1_life))
-            # print("Player2 Field {} Hand {} Graveyard {} Life Total {} ".format(p2_field, p2_hand, p2_grave, p2_life))
+            print()
+            print("Start of Round {}.".format(p1_turns +1))
+            print("Player1 Field {} Hand {} Graveyard {} Life Total {}".format(p1_field, p1_hand, p1_grave, p1_life))
+            print("Player2 Field {} Hand {} Graveyard {} Life Total {} ".format(p2_field, p2_hand, p2_grave, p2_life))
 
-            hit = take_turn(p1_ss, p1_deck, p1_hand, p1_field, p1_grave, p2_turns, p2_field, p2_grave, "P2", mana)
+            hit = take_turn(p1_ss, p1_deck, p1_hand, p1_field, p1_grave, p2_turns, p2_field, p2_grave, "P2", p1_life, mana)
             if hit == 3:
                 p2_life -= 3
+            elif hit == 5:
+                p1_life += 5
+            elif hit == 2:
+                p1_life -= 2
             health = combat_phase(p1_field, p1_life, p1_turns, p1_deck, p2_field, p2_life, p2_turns, p2_deck)
             if health[0] != "P1" and health[0] != "P2":
                 p1_life = health[0]
@@ -519,9 +595,13 @@ def play_the_game(board_state):
             else:
                 return health
 
-            hit = take_turn(p2_ss, p2_deck, p2_hand, p2_field, p2_grave, p1_turns, p1_field, p1_grave, "P1", mana)
+            hit = take_turn(p2_ss, p2_deck, p2_hand, p2_field, p2_grave, p1_turns, p1_field, p1_grave, "P1", p2_life, mana)
             if hit == 3:
                 p1_life -= 3
+            elif hit == 5:
+                p2_life += 5
+            elif hit == 2:
+                p2_life -= 2
             health = combat_phase(p1_field, p1_life, p1_turns, p1_deck, p2_field, p2_life, p2_turns, p2_deck)
             if health[0] != "P1" and health[0] != "P2":
                 p1_life = health[0]
@@ -531,13 +611,17 @@ def play_the_game(board_state):
                 return health
     if goes_first == 1:
         while True:
-            # print()
-            # print("Start of Round {}.".format(p1_turns + 1))
-            # print("Non-Evo Field {} Hand {} Graveyard {} Life Total {}".format(p1_field, p1_hand, p1_grave, p1_life))
-            # print("Evo Field {} Hand {} Graveyard {} Life Total {} ".format(p2_field, p2_hand, p2_grave, p2_life))
-            hit = take_turn(p2_ss, p2_deck, p2_hand, p2_field, p2_grave, p1_turns, p1_field, p1_grave, "P1", mana)
+            print()
+            print("Start of Round {}.".format(p1_turns + 1))
+            print("Non-Evo Field {} Hand {} Graveyard {} Life Total {}".format(p1_field, p1_hand, p1_grave, p1_life))
+            print("Evo Field {} Hand {} Graveyard {} Life Total {} ".format(p2_field, p2_hand, p2_grave, p2_life))
+            hit = take_turn(p2_ss, p2_deck, p2_hand, p2_field, p2_grave, p1_turns, p1_field, p1_grave, "P1", p2_life, mana)
             if hit == 3:
                 p1_life -= 3
+            elif hit == 5:
+                p2_life += 5
+            elif hit == 2:
+                p2_life -= 2
             health = combat_phase(p1_field, p1_life, p1_turns, p1_deck, p2_field, p2_life, p2_turns, p2_deck)
             if health[0] != "P1" and health[0] != "P2":
                 p1_life = health[0]
@@ -545,9 +629,13 @@ def play_the_game(board_state):
                 p2_turns += 1
             else:
                 return health
-            hit = take_turn(p1_ss, p1_deck, p1_hand, p1_field, p1_grave, p2_turns, p2_field, p2_grave, "P2", mana)
+            hit = take_turn(p1_ss, p1_deck, p1_hand, p1_field, p1_grave, p2_turns, p2_field, p2_grave, "P2", p2_life, mana)
             if hit == 3:
                 p2_life -= 3
+            elif hit == 5:
+                p1_life += 5
+            elif hit == 2:
+                p1_life -= 2
             health = combat_phase(p1_field, p1_life, p1_turns, p1_deck, p2_field, p2_life, p2_turns, p2_deck)
             if health[0] != "P1" and health[0] != "P2":
                 p1_life = health[0]
@@ -599,7 +687,7 @@ def out_of_all_games(mana):
 
 
 out_of_all_games(2)
-out_of_all_games(3)
+#out_of_all_games(3)
 
 
 # magic api starcity,tcg for data sets
