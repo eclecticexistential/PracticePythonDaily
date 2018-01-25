@@ -1,19 +1,95 @@
-import random
+import math, random
+
+class Mana:
+    def __init__(self, land_type=1, num_lands=17, evo=0):
+        if land_type < 1:
+            raise ValueError("Only super secret decks can run with no mana.")
+        self.land_type = land_type
+        self.num_lands = num_lands
+        self.evo = evo
+        self.mana = []
+        self.totals = math.floor(num_lands / land_type)
+        m_types = [2, 3, 4, 5, 6]
+        for z in range(evo):
+            self.mana.append(10)
+        for y in range(self.land_type):
+            for x in range(self.totals-1):
+                self.mana.append(m_types[y])
+        while len(self.mana) != num_lands:
+            rando = random.randint(0, self.land_type-1)
+            self.mana.append(m_types[rando])
+
+    def __iter__(self):
+        for lands in self.mana:
+            yield lands
 
 
-def db(x):
+class Spells:
+    def __init__(self, removal=4, life_gain=1, tutor=2, draw_cards=1, combat_tricks=4):
+        self.total_spells = {33: removal, 9: life_gain, 66: tutor, 42: draw_cards, 13: combat_tricks}
+        if removal < 0 or life_gain < 0 or tutor < 0 or draw_cards < 0:
+            raise ValueError("You're going to need a positive number of spells.")
+        self.removal = removal
+        self.life_gain = life_gain
+        self.tutor = tutor
+        self.draw_cards = draw_cards
+        self.combat_tricks = combat_tricks
+        self.spells = []
+        for value in self.total_spells:
+            for _ in range(self.total_spells[value]):
+                self.spells.append(value)
+
+    def __iter__(self):
+        for spells in self.spells:
+            yield spells
+
+
+class Creatures:
+    def __init__(self, lil=9, bombs=2):
+        if lil < 5 or bombs < 1:
+            raise ValueError("You're going to need some creatures")
+        self.lil = lil
+        self.bombs = bombs
+        self.total_creatures = {8: lil, 88: bombs}
+        self.creatures = []
+        for value in self.total_creatures:
+            for _ in range(self.total_creatures[value]):
+                self.creatures.append(value)
+
+    def __iter__(self):
+        for creatures in self.creatures:
+            yield creatures
+
+
+class Deck:
+    def __init__(self, total_cards=40, mana=Mana(), spells=Spells(), creatures=Creatures()):
+        if total_cards < 40:
+            raise ValueError("40 is the lowest card amount in all formats.")
+        self.total_cards = total_cards
+        self.mana = mana
+        self.spells = spells
+        self.creatures = creatures
+        self.cards = []
+        self.cards.extend(mana)
+        self.cards.extend(spells)
+        self.cards.extend(creatures)
+
+        if len(self.cards) < self.total_cards:
+            raise ValueError("Check total card count.")
+
+    @property
+    def total(self):
+        random.shuffle(self.cards)
+        return self.cards
+
+def db(x, y=0):
     # each has 23 playables: half creatures (two big'uns), half spells (one removal for big'un), and 17 lands
     # evo decks has two that replace lands
     # 42 = big creature, 2-4 mana, 8 = small creatures, 13 = direct damage, 33 = big creature removal, 9 = life gain
     # 66 = tutor
-    if x == 3:
-        non_evo_wilds_3m = [42, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 9, 66, 1, 1, 1, 1, 1, 1, 1, 1, 33, 42]
-        evo_wilds_3m = [42, 10, 10, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 9, 66, 1, 1, 1, 1, 1, 1, 1, 33, 42]
-        return status(evo_wilds_3m, non_evo_wilds_3m, 3)
-    elif x == 2:
-        non_evo_wilds_2m = [42, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 9, 66, 1, 1, 1, 1, 1, 1, 1, 33, 42]
-        evo_wilds_2m = [42, 10, 10, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 13, 9, 66, 1, 1, 1, 1, 1, 1, 1, 33, 42]
-        return status(evo_wilds_2m, non_evo_wilds_2m, 2)
+    evo = Deck(40, Mana(land_type=x, evo=y))
+    non_evo = Deck(40, Mana(land_type=x))
+    return status(evo.total, non_evo.total, x)
 
 
 def dice_roll():
@@ -656,7 +732,7 @@ def status(deck1, deck2, mana):
     return play_the_game(board_state)
 
 
-def out_of_all_games(mana):
+def out_of_all_games(mana, evo):
     evo_wilds_wins = 0
     non_evo_wins = 0
     ties = 0
@@ -664,7 +740,7 @@ def out_of_all_games(mana):
     non_evo_draw_steps = []
     games = 100
     while games > 0:
-        winner, turns = db(mana)
+        winner, turns = db(mana, evo)
         # appends num of draws into win condition if player won
         if winner == "P1":
             evo_draw_steps.append(turns)
@@ -686,8 +762,8 @@ def out_of_all_games(mana):
     print("Without Evolving Wilds: {} Cards Drawn Into Win Condition.".format(non_evo_totes))
 
 
-out_of_all_games(2)
-#out_of_all_games(3)
+out_of_all_games(2, 2)
+out_of_all_games(3, 3)
 
 
 # magic api starcity,tcg for data sets
