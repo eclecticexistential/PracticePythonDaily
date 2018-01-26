@@ -1,4 +1,6 @@
-import math, random
+import math
+import random
+
 
 class Mana:
     def __init__(self, land_type=1, num_lands=17, evo=0):
@@ -77,10 +79,95 @@ class Deck:
         if len(self.cards) < self.total_cards:
             raise ValueError("Check total card count.")
 
-    @property
-    def total(self):
+    def __iter__(self):
         random.shuffle(self.cards)
-        return self.cards
+        for card in self.cards:
+            yield card
+
+
+class GetDecks(Deck):
+    def __init__(self, count=40, mana=1, e_w=0):
+        super().__init__()
+        self.mana = mana
+        self.ew = e_w
+        self.count = count
+        self.evo = Deck(self.count, Mana(land_type=self.mana, evo=self.ew))
+        self.non_evo = Deck(self.count, Mana(land_type=self.mana))
+        self.dice = random.randint(1, 20)
+
+
+class Hand:
+    def __init__(self, cc=7, deck=[]):
+        self.cc = cc
+        self.hand = []
+        self.deck = deck
+        try:
+            for _ in range(self.cc):
+                for card in self.deck:
+                    self.hand.append(card)
+                    break
+        except TypeError:
+            print("Dunno yet.")
+
+    def __iter__(self):
+        for card in self.hand:
+            yield card
+
+
+class Mulligan():
+    def __init__(self, counter=7, hand=[], deck=[], mana=1):
+        self.mana = mana
+        self.deck = deck
+        self.hand = hand
+        self.counter = counter
+        print(self.counter)
+        self.count_lands = len(list(x for x in self.hand if x in [2, 3, 4, 5, 6]))
+        self.each = set(list(x for x in self.hand if x in [2, 3, 4, 5, 6]))
+        try:
+            while len(list(self.hand)) > 3:
+                if self.mana == 1:
+                    print("Hi")
+                    if self.count_lands < 2 or self.count_lands > 3:
+                        print("Made it here!")
+                        self.counter -= 1
+                        print("This is the counter {}".format(self.counter))
+                        Mulligan.ma(counter=self.counter, new_hand=Hand(cc=self.counter, deck=self.deck))
+                        break
+                    elif self.count_lands == 2 or self.count_lands == 3:
+                        self.hand = hand
+                        print("Here's the new hand {}".format(list(self.hand)))
+                        break
+                elif self.mana > 1:
+                    if len(self.each) != self.mana:
+                        self.counter -= 1
+                        Mulligan.ma(counter=self.counter, new_hand=Hand(cc=self.counter, deck=self.deck))
+
+        except RecursionError:
+            print("Keep trying {}.".format(list(self.hand)))
+        finally:
+            print("This is should be returned {}".format(list(self.hand)))
+
+
+    @classmethod
+    def ma(cls, counter=0, new_hand=Hand()):
+        if new_hand:
+            raise ValueError("No hand was created.")
+        print("New hand is {}.".format(list(new_hand)))
+        return cls(counter=counter, hand=new_hand)
+
+    def __iter__(self):
+        if self.hand:
+            for card in self.hand:
+                yield card
+        else:
+            for card in self.hand:
+                yield card
+
+a = GetDecks()
+b = Hand(deck=a.evo)
+c = Mulligan(hand=b, deck=a.evo)
+print(list(c))
+
 
 def db(x, y=0):
     # each has 23 playables: half creatures (two big'uns), half spells (one removal for big'un), and 17 lands
@@ -91,9 +178,6 @@ def db(x, y=0):
     non_evo = Deck(40, Mana(land_type=x))
     return status(evo.total, non_evo.total, x)
 
-
-def dice_roll():
-    return random.randint(1, 20)
 
 
 def mulligan(hand, mana, x):
@@ -423,7 +507,7 @@ def tutor(hand, deck, graveyard, untapped_mana, mana):
                         hand.append(cards)
                         untapped_mana[0] -= 1
                         untapped_mana[1] -= 1
-                        print("tutored")
+                        # print("tutored")
                         return 2
             if mana == 3:
                 if land1 >= 1 and land2 >= 1 or land2 >= 1 and land3 >= 1 or land1 >= 1 and land3 >= 1:
@@ -651,10 +735,10 @@ def play_the_game(board_state):
 # taking turns... goes_first determines who plays first
     if goes_first == 0:
         while True:
-            print()
-            print("Start of Round {}.".format(p1_turns +1))
-            print("Player1 Field {} Hand {} Graveyard {} Life Total {}".format(p1_field, p1_hand, p1_grave, p1_life))
-            print("Player2 Field {} Hand {} Graveyard {} Life Total {} ".format(p2_field, p2_hand, p2_grave, p2_life))
+            # print()
+            # print("Start of Round {}.".format(p1_turns +1))
+            # print("Player1 Field {} Hand {} Graveyard {} Life Total {}".format(p1_field, p1_hand, p1_grave, p1_life))
+            # print("Player2 Field {} Hand {} Graveyard {} Life Total {} ".format(p2_field, p2_hand, p2_grave, p2_life))
 
             hit = take_turn(p1_ss, p1_deck, p1_hand, p1_field, p1_grave, p2_turns, p2_field, p2_grave, "P2", p1_life, mana)
             if hit == 3:
@@ -687,10 +771,10 @@ def play_the_game(board_state):
                 return health
     if goes_first == 1:
         while True:
-            print()
-            print("Start of Round {}.".format(p1_turns + 1))
-            print("Non-Evo Field {} Hand {} Graveyard {} Life Total {}".format(p1_field, p1_hand, p1_grave, p1_life))
-            print("Evo Field {} Hand {} Graveyard {} Life Total {} ".format(p2_field, p2_hand, p2_grave, p2_life))
+            # print()
+            # print("Start of Round {}.".format(p1_turns + 1))
+            # print("Non-Evo Field {} Hand {} Graveyard {} Life Total {}".format(p1_field, p1_hand, p1_grave, p1_life))
+            # print("Evo Field {} Hand {} Graveyard {} Life Total {} ".format(p2_field, p2_hand, p2_grave, p2_life))
             hit = take_turn(p2_ss, p2_deck, p2_hand, p2_field, p2_grave, p1_turns, p1_field, p1_grave, "P1", p2_life, mana)
             if hit == 3:
                 p1_life -= 3
@@ -762,8 +846,8 @@ def out_of_all_games(mana, evo):
     print("Without Evolving Wilds: {} Cards Drawn Into Win Condition.".format(non_evo_totes))
 
 
-out_of_all_games(2, 2)
-out_of_all_games(3, 3)
+# out_of_all_games(2, 2)
+# out_of_all_games(3, 3)
 
 
 # magic api starcity,tcg for data sets
