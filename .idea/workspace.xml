@@ -21,18 +21,18 @@
       <file leaf-file-name="practice_daily.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/practice_daily.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="1303" column="19" lean-forward="false" selection-start-line="1303" selection-start-column="12" selection-end-line="1303" selection-end-column="19" />
+            <state relative-caret-position="234">
+              <caret line="509" column="45" lean-forward="false" selection-start-line="509" selection-start-column="41" selection-end-line="509" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mtg_evo_wilds_stats.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mtg_evo_wilds_stats.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mtg_evo_wilds_stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="151" column="44" lean-forward="true" selection-start-line="151" selection-start-column="44" selection-end-line="151" selection-end-column="44" />
+            <state relative-caret-position="17">
+              <caret line="155" column="41" lean-forward="false" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -40,14 +40,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dungeon_game.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dungeon_game.py">
+      <file leaf-file-name="scprc-est2017-18+pop-res.csv" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Dropbox/PythonCode LouisvilleProject/Original_Datasets/scprc-est2017-18+pop-res.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,9 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>info[6</find>
-      <find>info[7</find>
-      <find>info[9</find>
       <find>info[8</find>
       <find>none</find>
       <find>tutored</find>
@@ -94,6 +89,9 @@
       <find>classme</find>
       <find>new</find>
       <find>__new__</find>
+      <find>classmethod</find>
+      <find>__new</find>
+      <find>read</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,6 +115,7 @@
         <option value="$PROJECT_DIR$/card_game.py" />
         <option value="$PROJECT_DIR$/practice_daily.py" />
         <option value="$PROJECT_DIR$/mtg_evo_wilds_stats.py" />
+        <option value="$PROJECT_DIR$/ReadUSPop.py" />
       </list>
     </option>
   </component>
@@ -127,7 +126,7 @@
     <option name="height" value="784" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -140,32 +139,15 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practice100days" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="practice100days" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NEW/play21.py" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/PythonCode LouisvilleProject/Original_Datasets/pinc01_1_1_1.xls" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="slice&#9;null&#9;null&#10;floor&#9;null&#9;null&#10;index of&#9;null&#9;null&#10;index&#9;null&#9;null&#10;setatt&#9;null&#9;null&#10;type&#9;null&#9;null&#10;random&#9;FILE&#9;file://C:/Users/Earthling/AppData/Local/Programs/Python/Python35-32/Lib/random.py&#10;del&#9;null&#9;null&#10;time&#9;FILE&#9;file://C:/Users/Earthling/.PyCharmCE2016.3/system/python_stubs/-333844406/time.py" />
+    <property name="SearchEverywhereHistoryKey" value="read&#9;null&#9;null&#10;slice&#9;null&#9;null&#10;floor&#9;null&#9;null&#10;index of&#9;null&#9;null&#10;index&#9;null&#9;null&#10;setatt&#9;null&#9;null&#10;type&#9;null&#9;null&#10;random&#9;FILE&#9;file://C:/Users/Earthling/AppData/Local/Programs/Python/Python35-32/Lib/random.py&#10;del&#9;null&#9;null&#10;time&#9;FILE&#9;file://C:/Users/Earthling/.PyCharmCE2016.3/system/python_stubs/-333844406/time.py" />
   </component>
-  <component name="RunManager" selected="Python.mtg_evo_wilds_stats">
+  <component name="RunManager" selected="Python.ReadUSPop">
     <configuration default="false" name="practice_daily" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -179,23 +161,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="practice100days" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice_daily.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="shopping_list" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="practice100days" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shopping_list.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -247,6 +212,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="practice100days" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/card_game.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ReadUSPop" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="practice100days" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ReadUSPop.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -387,18 +369,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.practice_daily" />
-      <item index="1" class="java.lang.String" itemvalue="Python.shopping_list" />
-      <item index="2" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
-      <item index="3" class="java.lang.String" itemvalue="Python.dungeon_game" />
-      <item index="4" class="java.lang.String" itemvalue="Python.card_game" />
+      <item index="1" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
+      <item index="2" class="java.lang.String" itemvalue="Python.dungeon_game" />
+      <item index="3" class="java.lang.String" itemvalue="Python.card_game" />
+      <item index="4" class="java.lang.String" itemvalue="Python.ReadUSPop" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
-        <item index="1" class="java.lang.String" itemvalue="Python.practice_daily" />
-        <item index="2" class="java.lang.String" itemvalue="Python.card_game" />
-        <item index="3" class="java.lang.String" itemvalue="Python.dungeon_game" />
-        <item index="4" class="java.lang.String" itemvalue="Python.shopping_list" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ReadUSPop" />
+        <item index="1" class="java.lang.String" itemvalue="Python.mtg_evo_wilds_stats" />
+        <item index="2" class="java.lang.String" itemvalue="Python.practice_daily" />
+        <item index="3" class="java.lang.String" itemvalue="Python.card_game" />
+        <item index="4" class="java.lang.String" itemvalue="Python.dungeon_game" />
       </list>
     </recent_temporary>
   </component>
@@ -431,7 +413,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.093704246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -460,9 +442,9 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3308715" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3899557" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.093704246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.093704246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -487,28 +469,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../NEW/Hangman.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopping_list.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="98" lean-forward="false" selection-start-line="36" selection-start-column="98" selection-end-line="36" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/practice_daily.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/letter_game.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -741,9 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -756,11 +713,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dungeon_game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="323">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,25 +757,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="317" column="6" lean-forward="false" selection-start-line="317" selection-start-column="6" selection-end-line="317" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="617">
+          <caret line="2798" column="8" lean-forward="true" selection-start-line="2798" selection-start-column="8" selection-end-line="2798" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practice_daily.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="1303" column="19" lean-forward="false" selection-start-line="1303" selection-start-column="12" selection-end-line="1303" selection-end-column="19" />
+        <state relative-caret-position="234">
+          <caret line="509" column="45" lean-forward="false" selection-start-line="509" selection-start-column="41" selection-end-line="509" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReadUSPop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mtg_evo_wilds_stats.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="151" column="44" lean-forward="true" selection-start-line="151" selection-start-column="44" selection-end-line="151" selection-end-column="44" />
+        <state relative-caret-position="17">
+          <caret line="155" column="41" lean-forward="false" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Dropbox/PythonCode LouisvilleProject/Original_Datasets/scprc-est2017-18+pop-res.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

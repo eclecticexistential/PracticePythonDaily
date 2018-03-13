@@ -85,19 +85,12 @@ class Deck:
             yield card
 
 
-class GetDecks(Deck):
-    def __init__(self, count=40, mana=1, e_w=0):
-        super().__init__()
-        self.mana = mana
-        self.ew = e_w
-        self.count = count
-        self.evo = Deck(self.count, Mana(land_type=self.mana, evo=self.ew))
-        self.non_evo = Deck(self.count, Mana(land_type=self.mana))
-        self.dice = random.randint(1, 20)
+def dice():
+    return random.randint(1, 20)
 
 
 class Hand:
-    def __init__(self, cc=7, deck=[]):
+    def __init__(self, deck, cc=7):
         self.cc = cc
         self.hand = []
         self.deck = deck
@@ -114,162 +107,74 @@ class Hand:
             yield card
 
 
-class Mulligan():
-    def __init__(self, counter=7, hand=[], deck=[], mana=1):
-        self.mana = mana
-        self.deck = deck
-        self.hand = hand
-        self.counter = counter
-        print(self.counter)
-        self.count_lands = len(list(x for x in self.hand if x in [2, 3, 4, 5, 6]))
-        self.each = set(list(x for x in self.hand if x in [2, 3, 4, 5, 6]))
-        try:
-            while len(list(self.hand)) > 3:
-                if self.mana == 1:
-                    print("Hi")
-                    if self.count_lands < 2 or self.count_lands > 3:
-                        print("Made it here!")
-                        self.counter -= 1
-                        print("This is the counter {}".format(self.counter))
-                        Mulligan.ma(counter=self.counter, new_hand=Hand(cc=self.counter, deck=self.deck))
-                        break
-                    elif self.count_lands == 2 or self.count_lands == 3:
-                        self.hand = hand
-                        print("Here's the new hand {}".format(list(self.hand)))
-                        break
-                elif self.mana > 1:
-                    if len(self.each) != self.mana:
-                        self.counter -= 1
-                        Mulligan.ma(counter=self.counter, new_hand=Hand(cc=self.counter, deck=self.deck))
-
-        except RecursionError:
-            print("Keep trying {}.".format(list(self.hand)))
-        finally:
-            print("This is should be returned {}".format(list(self.hand)))
+def create_deck(cards, type_mana, evos=0):
+    if evos != 0:
+        evo = Deck(cards, Mana(land_type=type_mana, evo=evos))
+        return evo
+    elif evos == 0:
+        non_evo = Deck(cards, Mana(land_type=type_mana))
+        return non_evo
 
 
-    @classmethod
-    def ma(cls, counter=0, new_hand=Hand()):
-        if new_hand:
-            raise ValueError("No hand was created.")
-        print("New hand is {}.".format(list(new_hand)))
-        return cls(counter=counter, hand=new_hand)
-
-    def __iter__(self):
-        if self.hand:
-            for card in self.hand:
-                yield card
-        else:
-            for card in self.hand:
-                yield card
-
-a = GetDecks()
-b = Hand(deck=a.evo)
-c = Mulligan(hand=b, deck=a.evo)
-print(list(c))
+def create_hand(deck, cc):
+    new_hand = Hand(deck, cc)
+    return list(new_hand)
 
 
-def db(x, y=0):
-    # each has 23 playables: half creatures (two big'uns), half spells (one removal for big'un), and 17 lands
-    # evo decks has two that replace lands
-    # 42 = big creature, 2-4 mana, 8 = small creatures, 13 = direct damage, 33 = big creature removal, 9 = life gain
-    # 66 = tutor
-    evo = Deck(40, Mana(land_type=x, evo=y))
-    non_evo = Deck(40, Mana(land_type=x))
-    return status(evo.total, non_evo.total, x)
+def mulligan(deck, mana, cc):
+    shuffled = random.shuffle(list(deck))
+    smaller_hand = create_hand(shuffled, cc)
+    return check_hand(smaller_hand, mana, shuffled)
 
 
-
-def mulligan(hand, mana, x):
-    new_hand = []
-    new_deck = x
-    mana1 = 0
-    mana2 = 0
-    mana3 = 0
-    evo = 0
-    # checks hand for mana
-    for card in hand:
-        if card == 2:
-            mana1 += 1
-        elif card == 3:
-            mana2 += 1
-        elif card == 4:
-            mana3 += 1
-        elif card == 10:
-            evo += 1
+def check_hand(hand, mana, deck):
+    a = hand.count(2)
+    b = hand.count(3)
+    c = hand.count(4)
+    evo = hand.count(10)
+    cc = len(hand)
+    if cc < 3:
+        return False
+    if mana == 1:
+        if a < 2:
+            cc -= 1
+            return mulligan(deck, mana, cc)
     if mana == 2:
-        if mana1 == 0 or mana2 == 0:
-            if evo != 0:
-                pass
+        if a == 0 or b == 0:
+            if evo > 0:
+                return hand
             else:
-                total_draw = len(hand)-1
-                for card in hand:
-                    new_deck.append(card)
-                    random.shuffle(new_deck)
-                while total_draw > 0:
-                    a = random.choice(new_deck)
-                    new_deck.remove(a)
-                    new_hand.append(a)
-                    total_draw -= 1
-                return new_hand, new_deck
+                cc -= 1
+                return mulligan(deck, mana, cc)
         else:
-            return
-    elif mana == 3:
-        # checks hand for evo. if one present, check 2 mana sources for one of each
-        if evo != 0:
-            if mana1 != 0 and mana2 != 0:
-                pass
-            if mana2 != 0 and mana3 != 0:
-                pass
-            if mana1 != 0 and mana3 != 0:
-                pass
+            return hand
+    if mana == 3:
+        if evo > 0:
+            if a > 0 and b > 0 or a > 0 and c > 0 or b > 0 and c > 0:
+                return hand
             else:
-                total_draw = len(hand)-1
-                for card in hand:
-                    new_deck.append(card)
-                    random.shuffle(new_deck)
-                while total_draw > 0:
-                    a = random.choice(new_deck)
-                    new_deck.remove(a)
-                    new_hand.append(a)
-                    total_draw -= 1
-                return new_hand, new_deck
-        elif mana1 == 0 or mana2 == 0 or mana3 == 0:
-            total_draw = len(hand) - 1
-            for card in hand:
-                new_deck.append(card)
-                random.shuffle(new_deck)
-            while total_draw > 0:
-                a = random.choice(new_deck)
-                new_deck.remove(a)
-                new_hand.append(a)
-                total_draw -= 1
-            return new_hand, new_deck
-        else:
-            return
+                cc -= 1
+                return mulligan(deck, mana, cc)
+        elif evo == 0:
+            if a > 0 and b > 0 and c > 0:
+                return hand
+            else:
+                cc -= 1
+                return mulligan(deck, mana, cc)
 
 
-def open_hand(x, mana):
-    # make mulligan function
-    counter = 7
-    hand = []
-    lands_on_field = []
-    graveyard = []
-    while counter > 0:
-        a = random.choice(x)
-        x.remove(a)
-        hand.append(a)
-        counter -= 1
-    # change here to alter allowed number to mulligan to
-    while len(hand) > 3:
-        hand_size = mulligan(hand, mana, x)
-        if hand_size is not None:
-            hand = hand_size[0]
-            x = hand_size[1]
-        else:
-            break
-    data = [hand, x, lands_on_field, graveyard]
-    return data
+def open_hand(cards, typemana, evos=0):
+    this_deck = create_deck(cards, typemana, evos)
+    a_hand = create_hand(this_deck, 7)
+    manad = check_hand(a_hand, typemana, this_deck)
+    if manad:
+        curr_deck = list(this_deck)
+        for card in manad:
+            if card in curr_deck:
+                curr_deck.remove(card)
+        return [curr_deck, manad]
+    else:
+        return False
 
 
 def draw(deck, hand):
@@ -282,204 +187,169 @@ def draw(deck, hand):
     return [deck, hand]
 
 
-def hands(x, mana):
-    random.shuffle(x)
-    # mixes up deck
-    hand, deck, lands_on_field, graveyard = open_hand(x, mana)
-    # gets opening hand of 7 cards, removes them from deck, creates field variable: an array
-    return hand, deck, lands_on_field, graveyard
+def establish_field(cc, type_mana, evos=0):
+    try:
+        player_stats = open_hand(cc, type_mana, evos)
+        field = []
+        player_stats.append(field)
+        graveyard = []
+        player_stats.append(graveyard)
+        return player_stats
+    except AttributeError:
+        return False
 
 
 def hand_check(hand, graveyard):
     # discards a 1 to take into account creatures/spells that are played during each round
     if len(hand) > 7:
         for cards in hand:
-            if cards == 1 or cards == 8:
+            if cards == 9 or cards == 8:
                 hand.remove(cards)
                 graveyard.append(cards)
                 break
 
 
 def play_land(mana, deck, hand, field, graveyard):
-    mana_one = 0
-    mana_two = 0
-    mana_three = 0
-
-    for counter in hand:
-        if counter == 2:
-            mana_one += 1
-        elif counter == 3:
-            mana_two += 1
-        elif counter == 4:
-            mana_three += 1
-
-    has_evo = 0
-    color2 = 0
-    color3 = 0
-    color4 = 0
-    # checks to see which land is needed
-    for lands in field:
-        if lands == 2:
-            color2 += 1
-        elif lands == 3:
-            color3 += 1
-        elif lands == 4:
-            color4 += 1
-    for card in hand:
-        if card == 10:
-            has_evo += 1
-            graveyard.append(card)
-            hand.remove(card)
-            for cards in deck:
-                # puts basic on the field
-                if cards == 2:
-                    if color2 > color3 and mana_one > mana_two:
-                        pass
-                    elif mana == 3 and color2 > color4 and mana_one > mana_three:
-                        pass
-                    else:
-                        field.append(cards)
-                        deck.remove(cards)
-                        random.shuffle(deck)
-                        # print("Evo used for 2.")
-                        return 1
-                elif cards == 3:
-                    if color3 > color2 and mana_two > mana_one:
-                        pass
-                    elif mana == 3 and color3 > color4 and mana_two > mana_three:
-                        pass
-                    else:
-                        field.append(cards)
-                        deck.remove(cards)
-                        random.shuffle(deck)
-                        # print("Evo used for 3.")
-                        return 1
-                elif cards == 4:
-                    if color4 > color2 and mana_three > mana_one:
-                        pass
-                    elif color4 > color3 and mana_three > mana_two:
-                        pass
-                    else:
-                        field.append(cards)
-                        deck.remove(cards)
-                        random.shuffle(deck)
-                        # print("Evo used for 4.")
-                        return 1
-    if has_evo != 1:
-            # plays land otherwise
-        for card in hand:
-            if mana == 2:
-                if card == 2 and color2 <= color3:
-                    field.append(card)
-                    hand.remove(card)
-                    return 0
-                if card == 3 and color3 <= color2:
-                    field.append(card)
-                    hand.remove(card)
-                    return 0
-                else:
-                    if card == 2:
-                        if color3 != 0:
-                            field.append(card)
-                            hand.remove(card)
-                            return 0
-                    elif card == 3:
-                        if color2 != 0:
-                            field.append(card)
-                            hand.remove(card)
-                            return 0
-            elif mana == 3:
-                if card == 2:
-                    if color2 <= color3 and color2 <= color4:
-                        field.append(card)
-                        hand.remove(card)
-                        return 0
-                if card == 3:
-                    if color3 <= color2 and color3 <= color4:
-                        field.append(card)
-                        hand.remove(card)
-                        return 0
-                if card == 4:
-                    if color4 <= color2 and color4 <= color3:
-                        field.append(card)
-                        hand.remove(card)
-                        return 0
-                else:
-                    if card == 2 and mana_two == 0 and mana_three == 0:
-                        field.append(card)
-                        hand.remove(card)
-                        return 0
-                    elif card == 3 and mana_one == 0 and mana_three == 0:
-                        field.append(card)
-                        hand.remove(card)
-                        return 0
-                    elif card == 4 and mana_one == 0 and mana_two == 0:
-                        field.append(card)
-                        hand.remove(card)
-                        return 0
+    d = field.count(2)
+    e = field.count(3)
+    f = field.count(4)
+    if mana == 1:
+        field.append(2)
+        hand.remove(2)
+    elif mana == 2:
+        if d > e:
+            if 10 in hand:
+                graveyard.append(10)
+                hand.remove(10)
+                if 3 in deck:
+                    deck.remove(3)
+                    field.append(3)
+                    return deck, hand, field, graveyard
+            elif 3 in hand:
+                field.append(3)
+                hand.remove(3)
+                return deck, hand, field, graveyard
+        elif e > d:
+            if 10 in hand:
+                graveyard.append(10)
+                hand.remove(10)
+                if 2 in deck:
+                    deck.remove(2)
+                    field.append(2)
+                    return deck, hand, field, graveyard
+            elif 2 in hand:
+                field.append(2)
+                hand.remove(2)
+                return deck, hand, field, graveyard
+        elif d == e:
+            a = dice()
+            if a <= 10:
+                field.append(2)
+                hand.remove(2)
+                return deck, hand, field, graveyard
+            else:
+                field.append(3)
+                hand.remove(3)
+                return deck, hand, field, graveyard
+    elif mana == 3:
+        if d > e and e < f:
+            if 10 in hand:
+                graveyard.append(10)
+                hand.remove(10)
+                if 3 in deck:
+                    deck.remove(3)
+                    field.append(3)
+                    return deck, hand, field, graveyard
+            elif 3 in hand:
+                field.append(3)
+                hand.remove(3)
+                return deck, hand, field, graveyard
+        elif e > d and d < f:
+            if 10 in hand:
+                graveyard.append(10)
+                hand.remove(10)
+                if 2 in deck:
+                    deck.remove(2)
+                    field.append(2)
+                    return deck, hand, field, graveyard
+            elif 2 in hand:
+                field.append(2)
+                hand.remove(2)
+                return deck, hand, field, graveyard
+        elif f < d and f < e:
+            if 10 in hand:
+                graveyard.append(10)
+                hand.remove(10)
+                if 4 in deck:
+                    deck.remove(4)
+                    field.append(4)
+                    return deck, hand, field, graveyard
+            elif 4 in hand:
+                field.append(4)
+                hand.remove(4)
+                return deck, hand, field, graveyard
+        elif d == e and e == f:
+            a = dice()
+            a += 1
+            if a <= 7:
+                field.append(2)
+                hand.remove(2)
+                return deck, hand, field, graveyard
+            elif a > 14:
+                field.append(3)
+                hand.remove(3)
+                return deck, hand, field, graveyard
+            else:
+                field.append(4)
+                hand.remove(4)
+                return deck, hand, field, graveyard
 
 
 def check_field(hand, field, evo, mana):
-    num2s = 0
-    num3s = 0
-    num4s = 0
-
-    # counts the lands to see if an adequate amount of land is available to cast 'win condition' cards: 42
-    for card in field:
-        if card == 2:
-            num2s += 1
-        elif card == 3:
-            num3s += 1
-        elif card == 4:
-            num4s += 1
+    a = field.count(2)
+    b = field.count(3)
+    c = field.count(4)
 
     # gets available mana
-    available_mana = [num2s, num3s, num4s]
+    available_mana = [a, b, c]
 
-    # 8 or 42 mana to cast creature cards
-    for cards in hand:
-        if mana == 2:
-            # checks if evo was played to see if legal move can be made using mana on this turn
-            if evo == 1:
-                if num2s == 3 and num3s == 3:
-                    pass
-                if num2s == 1 and num3s == 1:
-                    pass
-            else:
-                if num2s >= 3 and num3s >= 3:
-                    if cards == 42:
-                        hand.remove(cards)
-                        field.append(cards)
-                        available_mana[0] -= 3
-                        available_mana[1] -= 3
-                        break
-                if num2s >= 1 and num3s >= 1:
-                    if cards == 8:
-                        hand.remove(cards)
-                        field.append(cards)
-                        available_mana[0] -= 1
-                        available_mana[1] -= 1
-                        break
-        elif mana == 3:
-            if evo != 1:
-                if num2s >= 2 and num3s >= 2 and num4s >= 2:
-                    if cards == 42:
-                        hand.remove(cards)
-                        field.append(cards)
-                        available_mana[0] -= 2
-                        available_mana[1] -= 2
-                        available_mana[2] -= 2
-                        break
-                if num2s >= 1 and num3s >= 1 and num4s >= 1:
-                    if cards == 8:
-                        hand.remove(cards)
-                        field.append(cards)
-                        available_mana[0] -= 1
-                        available_mana[1] -= 1
-                        available_mana[2] -= 1
-                        break
-    manas = [num2s, num3s, num4s], available_mana
-    return manas
+    if mana == 2:
+        # checks if evo was played to see if legal move can be made using mana on this turn
+        if evo == 1 and a == 1 and b == 1 or a == 3 and b == 3:
+            pass
+        if a >= 3 and b >= 3:
+                if 42 in hand:
+                    hand.remove(42)
+                    field.append(42)
+                    available_mana[0] -= 3
+                    available_mana[1] -= 3
+                    return available_mana
+        if a >= 1 and a >= 1:
+            if 8 in hand:
+                hand.remove(8)
+                field.append(8)
+                available_mana[0] -= 1
+                available_mana[1] -= 1
+                return available_mana
+    elif mana == 3:
+        if evo == 1 and a == 1 and b == 1 and c == 1 or a == 3 and b == 3 and c == 3:
+            pass
+        if a >= 2 and b >= 2 and c >= 2:
+            if 42 in hand:
+                hand.remove(42)
+                field.append(42)
+                available_mana[0] -= 2
+                available_mana[1] -= 2
+                available_mana[2] -= 2
+                return available_mana
+        if num2s >= 1 and num3s >= 1 and num4s >= 1:
+            if 8 in hand:
+                hand.remove(8)
+                field.append(8)
+                available_mana[0] -= 1
+                available_mana[1] -= 1
+                available_mana[2] -= 1
+                return available_mana
 
 
 def check_creatures(battlefield):
